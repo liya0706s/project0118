@@ -4,10 +4,12 @@
     <div style="height:30px; display:block;"></div>
     <!--正中央-->
     <!-- 原本script的地方 -->
-    <div style="width:100%; padding:2px; height:290px;">
+    <div class="container-fluid">
+    <div  class="row" style="padding:2px; height:380px; width:100%">
         <div id="mwww" loop="true" style="width:100%; height:100%;">
             <div style="width:99%; height:100%; position:relative;" class="cent">沒有資料</div>
         </div>
+    </div>
     </div>
     
     <!-- 加入script -->

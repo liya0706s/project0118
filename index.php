@@ -1,4 +1,25 @@
-<?php include_once "./api/db.php"; ?>
+<?php include_once "./api/db.php";
+
+// PHP 函數定義的位置
+function createDropdownMenu($menu)
+{
+	$html = "<li class='nav-item dropdown'>";
+	$html .= "<a class='nav-link dropdown-toggle' href='#' id='navbarDropdown{$menu['id']}' role='button' data-bs-toggle='dropdown' aria-expanded='false'>";
+	$html .= htmlspecialchars($menu['text']);
+	$html .= "</a>";
+	$html .= "<ul class='dropdown-menu' aria-labelledby='navbarDropdown{$menu['id']}'>";
+
+	foreach ($menu['subs'] as $sub) {
+		$html .= "<li><a class='dropdown-item' href='" . htmlspecialchars($sub['href']) . "'>" . htmlspecialchars($sub['text']) . "</a></li>";
+	}
+
+	$html .= "</ul>";
+	$html .= "</li>";
+
+	return $html;
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,16 +44,103 @@
 	<!-- bootstrap 5.2 cdn css-->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/css/bootstrap.min.css" rel="stylesheet">
 
+	<!-- carousel script and link  -->
+	<script src="../assets/js/color-modes.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+	<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+	
 	<style>
 		body {
-			padding-top: 70px;
+			padding-top: 64px;
 		}
 
 		.ti {
-			height: 130px;
+			height: 150px;
 			width: 100%;
 		}
+
+		/* carousel style START  */
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    /* carousel style END  */
+
 	</style>
+	<!-- Custom styles for this carousel template -->
+	<link href="carousel.css" rel="stylesheet">
 </head>
 
 <body>
@@ -52,7 +160,24 @@
 						<li class="nav-item">
 							<a class="nav-link active" aria-current="page" href="back.php">返回管理</a>
 						</li>
+
 						<!-- 動態生成的主選單和子選單 -->
+						<?php
+						$mainmu = $Menu->all(['sh' => 1, 'menu_id' => 0]);
+						foreach ($mainmu as $main) {
+							// 檢查是否有次選單
+							if ($Menu->count(['menu_id' => $main['id']]) > 0) {
+								// 撈取次選單
+								$main['subs'] = $Menu->all(['menu_id' => $main['id']]);
+								// 使用上述創建的函數生成下拉菜單的 HTML
+								echo createDropdownMenu($main);
+							} else {
+								// 如果沒有次選單，只顯示一個鏈接
+								echo "<li class='nav-item'><a class='nav-link' href='" . htmlspecialchars($main['href']) . "'>" . htmlspecialchars($main['text']) . "</a></li>";
+							}
+						}
+						?>
+
 
 					</ul>
 				</div>
@@ -76,18 +201,18 @@
 			</div>
 		</div>
 
-		<div class="alert alert-warning alert-dismissible fade show fixed-top" role="alert" style="margin-top: 0; top: 0;">
+		<!-- <div class="alert alert-warning alert-dismissible fade show fixed-top" role="alert" style="margin-top: 0; top: 0;">
 			<strong>SERVING LUNCH EVERY WEEKDAY!</strong> 11:00AM-2:30PM
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-		</div>
+		</div> -->
 
 
 		<div id="main">
 
 			<div id="ms">
 				<div id="lf" style="float:left;">
+					<!--主選單區開始-->
 					<div id="menuput" class="dbor">
-						<!--主選單放此-->
 						<span class="t botli">主選單區</span>
 						<?php
 						// 撈取全部的主選單(menu_id=0)且有顯示的
@@ -117,6 +242,8 @@
 						}
 						?>
 					</div>
+					<!-- 主選單區結束 -->
+
 					<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
 						<span class="t">進站總人數 : <?= $Total->find(1)['total']; ?></span>
 					</div>
@@ -213,7 +340,7 @@
 				</div>
 			</div>
 			<div style="clear:both;"></div>
-			<div style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
+			<div style="width:100%; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
 				<span class="t" style="line-height:123px;"><?= $Bottom->find(1)['bottom']; ?></span>
 			</div>
 		</div>
