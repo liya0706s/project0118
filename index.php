@@ -59,7 +59,6 @@
 			</div>
 		</nav>
 
-
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12">
@@ -77,9 +76,13 @@
 			</div>
 		</div>
 
+		<div class="alert alert-warning alert-dismissible fade show fixed-top" role="alert" style="margin-top: 0; top: 0;">
+			<strong>SERVING LUNCH EVERY WEEKDAY!</strong> 11:00AM-2:30PM
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div>
+
+
 		<div id="main">
-
-
 
 			<div id="ms">
 				<div id="lf" style="float:left;">
@@ -191,10 +194,6 @@
 								if (x == 2 && (nowpage + 1) <= num * 1 - 3) {
 									nowpage++;
 								}
-								// nowpage  num   s   t	
-								// 1  ->6    9+3   0  0
-								// 2  ->	  9     0  2 3 4
-								// (2+1)*3=9	9  12  
 								$(".im").hide()
 
 								// s 是for 迴圈中的計數器， 它的值在每次迭代中會分別是 0、 1、 2
@@ -203,13 +202,6 @@
 
 								// 迴圈跑三次 0,1,2
 								for (s = 0; s <= 2; s++) {
-									// s會變動的值,從以上帶進來nowpage是固定的值
-									// 0+1 1 #ssaa1
-									// 1+1 2 #ssaa2
-									// 2+1 3 #ssaa3
-									// 字串1加上數字的1 = 11
-									// 數字型態1+數字1=2
-									// php中 字串1加上數字的1 = 2
 									t = s * 1 + nowpage * 1;
 									$("#ssaa" + t).show()
 								}
