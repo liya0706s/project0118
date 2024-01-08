@@ -28,7 +28,7 @@
 			padding-top: 70px;
 		}
 
-		.header {
+		.ti {
 			height: 130px;
 			width: 100%;
 		}
@@ -53,7 +53,7 @@
 							<a class="nav-link active" aria-current="page" href="back.php">返回管理</a>
 						</li>
 						<!-- 動態生成的主選單和子選單 -->
-						
+
 					</ul>
 				</div>
 			</div>
@@ -67,13 +67,11 @@
 						<?php
 						$title = $Title->find(['sh' => 1]);
 						?>
-						<div class="box header">
-							<a title="<?= $title['text']; ?>" href="index.php">
-								<!-- 按下標題都會回到首頁 -->
-								<div class="ti" style="background:url('./img/<?= $title['img']; ?>'); background-size:cover; "></div>
-								<!--標題-->
-							</a>
-						</div>
+						<a title="<?= $title['text']; ?>" href="index.php">
+							<!-- 按下標題都會回到首頁 -->
+							<div class="ti" style="background:url('./img/<?= $title['img']; ?>'); background-size:cover; w-100"></div>
+							<!--標題-->
+						</a>
 					</div>
 				</div>
 			</div>
