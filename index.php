@@ -280,7 +280,7 @@
 						<div class="t">
 							<i class="fa-solid fa-chart-simple"></i>&nbsp;
 							VISITOR COUNTER |
-							TODAY<?= $Total->find(1)['total']; ?>
+							TODAY <?= $Total->find(1)['total']; ?>
 						</div>
 					</div>
 				</div>
