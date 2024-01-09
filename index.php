@@ -31,15 +31,6 @@
 	<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
 	<style>
-		body {
-			padding-top: 62px;
-		}
-
-		.ti {
-			height: 150px;
-			width: 100%;
-		}
-
 		/* carousel style START  */
 		.bd-placeholder-img {
 			font-size: 1.125rem;
@@ -128,14 +119,20 @@
 	<main>
 		<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="index.php">
+				<!-- <a class="navbar-brand" href="index.php">
 					<i class="fa-solid fa-school"></i>
-				</a>
+				</a> -->
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
+
+						<li class="nav-item">
+							<a class="nav-link active" href="index.php">
+								<i class="fa-solid fa-school"></i>
+							</a>
+						</li>
 
 						<!-- 靜態導航項目 -->
 						<li class="nav-item">
@@ -143,9 +140,18 @@
 						</li>
 
 						<!-- 動態生成的主選單和子選單 -->
-						<?php
-						
-						?>
+						<!-- 有子選單開始 -->
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="#">Action</a></li>
+								<li><a class="dropdown-item" href="#">Another action</a></li>
+								<li><a class="dropdown-item" href="#">Something else here</a></li>
+							</ul>
+						</li>
+						<!-- 有子選單結束 -->
+
+
 
 					</ul>
 				</div>

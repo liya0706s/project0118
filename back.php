@@ -1,7 +1,7 @@
-﻿<?php include_once "./api/db.php"; 
+﻿<?php include_once "./api/db.php";
 // 如果存在login就可以操作，反之亦然 不存在login變數就請你回首頁
 // 從check.php用session有login參數的機制保護頁面
-if(!isset($_SESSION['login'])){
+if (!isset($_SESSION['login'])) {
 	to("index.php");
 }
 ?>
@@ -36,54 +36,64 @@ if(!isset($_SESSION['login'])){
 	</div>
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-			<div class="container-fluid">
-				<a class="navbar-brand" href="index.php">
-					<i class="fa-solid fa-school"></i>
-				</a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav">
+		<div class="container-fluid">
 
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse row" id="navbarNav">
+				<div class="col-10">
+					<ul class="navbar-nav">
+						<li class="nav-item mt-1">
+							<a class="nav-link active" href="index.php">
+								<i class="fa-solid fa-school"></i>
+							</a>
+						</li>
 						<!-- 靜態導航項目 -->
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="back.php">網站標題管理</a>
+							<a class="nav-link active" aria-current="page" href="?do=title">網站標題管理</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="back.php">動態文字廣告管理</a>
+							<a class="nav-link active" aria-current="page" href="?do=ad">動態文字廣告管理</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="back.php">動畫圖片管理</a>
+							<a class="nav-link active" aria-current="page" href="?do=mvim">動畫圖片管理</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="back.php">校園映象資料管理</a>
+							<a class="nav-link active" aria-current="page" href="?do=image">校園映象資料管理</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="back.php">進站總人數管理</a>
+							<a class="nav-link active" aria-current="page" href="?do=total">進站總人數管理</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="back.php">頁尾版權資料管理</a>
+							<a class="nav-link active" aria-current="page" href="?do=bottom">頁尾版權資料管理</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="back.php">最新消息資料管理</a>
+							<a class="nav-link active" aria-current="page" href="?do=news">最新消息資料管理</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="back.php">管理者帳號管理</a>
+							<a class="nav-link active" aria-current="page" href="?do=admin">管理者帳號管理</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="back.php">選單管理</a>
+							<a class="nav-link active" aria-current="page" href="?do=menu">選單管理</a>
 						</li>
+
 
 						<!-- 動態生成的主選單和子選單 -->
 						<?php
-						
+
 						?>
 
 					</ul>
 				</div>
+				<div class="col-2 order-5">
+					<button class="btn btn-primary">後台管理</button>
+					<button class="btn btn-primary">管理登出</button>
+				</div>
 			</div>
-		</nav>
+		</div>
+	</nav>
 
 	<div id="main">
 		<?php
