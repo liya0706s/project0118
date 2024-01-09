@@ -143,15 +143,47 @@
 
 							<!-- 動態生成的主選單和子選單 -->
 							<!-- 有子選單開始 -->
-							<li class="nav-item dropdown">
+							<!-- <li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
 								<ul class="dropdown-menu">
 									<li><a class="dropdown-item" href="#">Action</a></li>
 									<li><a class="dropdown-item" href="#">Another action</a></li>
 									<li><a class="dropdown-item" href="#">Something else here</a></li>
 								</ul>
-							</li>
+							</li> -->
+
+							<?php
+							$mainMenus = $Menu->all(['sh' => 1, 'menu_id' => 0]);
+							foreach ($mainMenus as $main) {
+								$subMenus = $Menu->all(['menu_id' => $main['id']]);
+								$hasSub = count($subMenus) > 0;
+
+								echo "<li class='nav-item";
+								echo $hasSub ? " dropdown" : "";
+								echo "'>";
+
+								echo "<a class='nav-link";
+								echo $hasSub ? " dropdown-toggle' href='#' id='navbarDropdown{$main['id']}' role='button' data-bs-toggle='dropdown' aria-expanded='false'" : "' href='{$main['href']}'";
+								echo ">{$main['text']}</a>";
+
+								if ($hasSub) {
+									echo "<ul class='dropdown-menu' aria-labelledby='navbarDropdown{$main['id']}'>";
+									foreach ($subMenus as $sub) {
+										echo "<li><a class='dropdown-item' href='{$sub['href']}'>{$sub['text']}</a></li>";
+									}
+									echo "</ul>";
+								}
+
+								echo "</li>";
+							}
+							?>
+
 							<!-- 有子選單結束 -->
+
+
+
+
+
 
 						</ul>
 					</div>
@@ -208,11 +240,10 @@
 		</div> -->
 
 
-		<div id="main">
-
-			<div id="ms">
-				<div id="lf" style="float:left;">
-					<!--主選單區開始-->
+		<div id="main" class="container-fluid">
+			<div id="ms" class="row">
+				<div id="lf" style="float:left;" class="col">
+					<!--左側主選單區開始-->
 					<div id="menuput" class="dbor">
 						<span class="t botli">主選單區</span>
 						<?php
@@ -243,110 +274,120 @@
 						}
 						?>
 					</div>
-					<!-- 主選單區結束 -->
+					<!-- 左側主選單區結束 -->
 
 					<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
 						<div class="t">
 							<i class="fa-solid fa-chart-simple"></i>&nbsp;
-							VISITOR COUNTER | 
+							VISITOR COUNTER |
 							TODAY<?= $Total->find(1)['total']; ?>
 						</div>
 					</div>
 				</div>
 
-				<!-- 中間區塊開始 -->
+				<div class="row">
+					<!-- 中間區塊開始 -->
 
-				<?php
-				$do = $_GET['do'] ?? 'main';
-				// 如果$do符合isset就是$_GET['do']，否則導入main
-				// $do = isset($_GET['do']) ? $_GET['do'] : 'main';
-				// 檔案的位置，$do設定為變數，多個頁面自動替換，不用打很長的程式碼
-				$file = "./front/{$do}.php";
-				// 判斷檔案是否存在(路徑包含檔名)，如果是亂打的會引入main.php
-				if (file_exists($file)) {
-					include $file;
-				} else {
-					include "./front/main.php";
-				}
-
-
-				?>
-
-				<!-- 中間區塊結束 -->
-
-				<!-- 右邊區塊開始 -->
-				<div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
-					<!--右邊-->
-					<!-- 2023-12-18  寫判斷，如果登入使用者，返回管理;反之會是管理登入 start-->
 					<?php
-					// if (isset($_SESSION['login'])) {
+					$do = $_GET['do'] ?? 'main';
+					// 如果$do符合isset就是$_GET['do']，否則導入main
+					// $do = isset($_GET['do']) ? $_GET['do'] : 'main';
+					// 檔案的位置，$do設定為變數，多個頁面自動替換，不用打很長的程式碼
+					$file = "./front/{$do}.php";
+					// 判斷檔案是否存在(路徑包含檔名)，如果是亂打的會引入main.php
+					if (file_exists($file)) {
+						include $file;
+					} else {
+						include "./front/main.php";
+					}
+
 
 					?>
-					<!-- <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="location.href='back.php'">返回管理</button> -->
-					<?php
-					// } else {
-					?>
-					<!-- <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="location.href='?do=login'">管理登入</button> -->
-					<?php
-					// }
-					?>
-					<!-- 2023-12-18  寫判斷，如果登入使用者，返回管理;反之會是管理登入 end-->
 
-					<div style="width:89%; height:480px;" class="dbor">
-						<span class="t botli">校園映象區</span>
-
-						<div class="cent" onclick="pp(1)"><img src="./icon/up.jpg" alt=""></div>
-						<!-- <div id="ssaa1" class="im">
-						<img src="" alt="">
-					</div> -->
-						<?php
-						// 有被設定為顯示的才要
-						$imgs = $Image->all(['sh' => 1]);
-
-						foreach ($imgs as $idx => $img) {
-						?>
-							<div id="ssaa<?= $idx; ?>" class='im cent'>
-								<img src="./img/<?= $img['img']; ?>" style="width:150px;height:103px;border:3px solid orange;margin:3px">
-							</div>
-						<?php
-						}
-						?>
-						<div class="cent" onclick="pp(2)"><img src="./icon/dn.jpg" alt=""></div>
-
-						<script>
-							var nowpage = 1,
-								num = <?= $Image->count(['sh' => 1]); ?>;
-							// pp function裡面的參數x, (nowpage-1) 要加小括號
-							// 如果(現在頁面-1)>0,代表要往上一頁，現在至少是2
-							// 邏輯等同於分頁和萬年曆的上個月份 
-							// x意思是往前或是往後的判斷值, 如果每次要換頁一次換三張
-							// num代表總圖片數量 
-							function pp(x) {
-								var s, t;
-								if (x == 1 && nowpage - 1 >= 0) {
-									nowpage--;
-								}
-								if (x == 2 && (nowpage + 1) <= num * 1 - 3) {
-									nowpage++;
-								}
-								$(".im").hide()
-
-								// s 是for 迴圈中的計數器， 它的值在每次迭代中會分別是 0、 1、 2
-								// nowpage 是目前的頁碼， 它是一個外部定義的變數。
-								// t 是一個臨時變數， 用來存儲計算後的值
-
-								// 迴圈跑三次 0,1,2
-								for (s = 0; s <= 2; s++) {
-									t = s * 1 + nowpage * 1;
-									$("#ssaa" + t).show()
-								}
-							}
-							pp(2)
-							// 先執行2??
-						</script>
-					</div>
+					<!-- 中間區塊結束 -->
 				</div>
-				<!-- 右邊區塊結束 -->
+
+			</div>
+			<div class="container-fluid">
+				<div class="row">
+					<!-- 右邊區塊開始 -->
+					<div class="di di ad" style="height:540px; padding:0px; margin-left:22px; float:left; ">
+						<!--右邊-->
+						<!-- 2023-12-18  寫判斷，如果登入使用者，返回管理;反之會是管理登入 start-->
+						<?php
+						// if (isset($_SESSION['login'])) {
+
+						?>
+						<!-- <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="location.href='back.php'">返回管理</button> -->
+						<?php
+						// } else {
+						?>
+						<!-- <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="location.href='?do=login'">管理登入</button> -->
+						<?php
+						// }
+						?>
+						<!-- 2023-12-18  寫判斷，如果登入使用者，返回管理;反之會是管理登入 end-->
+
+						<!-- 這邊可以用carousel取代 -->
+						<div style="width:95%; height:480px;" class="dbor">
+							<span class="t botli">校園映象區</span>
+
+							<!-- 上箭頭 -->
+							<div class="cent" onclick="pp(1)">
+							<img src="./icon/up.jpg" alt=""></div>
+							<div id="ssaa1" class="im">
+						<img src="" alt="">
+					</div>
+							<?php
+							// 有被設定為顯示的才要
+							$imgs = $Image->all(['sh' => 1]);
+
+							foreach ($imgs as $idx => $img) {
+							?>
+								<div id="ssaa<?= $idx; ?>" class='im cent'>
+									<img src="./img/<?= $img['img']; ?>" style="width:150px;height:103px;border:3px solid orange;margin:3px">
+								</div>
+							<?php
+							}
+							?>
+							<!-- 下箭頭 -->
+							<div class="cent" onclick="pp(2)"><img src="./icon/dn.jpg" alt=""></div>
+
+							<script>
+								var nowpage = 1,
+									num = <?= $Image->count(['sh' => 1]); ?>;
+								// pp function裡面的參數x, (nowpage-1) 要加小括號
+								// 如果(現在頁面-1)>0,代表要往上一頁，現在至少是2
+								// 邏輯等同於分頁和萬年曆的上個月份 
+								// x意思是往前或是往後的判斷值, 如果每次要換頁一次換三張
+								// num代表總圖片數量 
+								function pp(x) {
+									var s, t;
+									if (x == 1 && nowpage - 1 >= 0) {
+										nowpage--;
+									}
+									if (x == 2 && (nowpage + 1) <= num * 1 - 3) {
+										nowpage++;
+									}
+									$(".im").hide()
+
+									// s 是for 迴圈中的計數器， 它的值在每次迭代中會分別是 0、 1、 2
+									// nowpage 是目前的頁碼， 它是一個外部定義的變數。
+									// t 是一個臨時變數， 用來存儲計算後的值
+
+									// 迴圈跑三次 0,1,2
+									for (s = 0; s <= 2; s++) {
+										t = s * 1 + nowpage * 1;
+										$("#ssaa" + t).show()
+									}
+								}
+								pp(2)
+								// 012共三張
+							</script>
+						</div>
+					</div>
+					<!-- 右邊區塊結束 -->
+				</div>
 			</div>
 			<div style="clear:both;"></div>
 			<div style="width:100%; left:0px; position:relative; background:#FC3; margin-top:75px; height:123px; display:block;">
