@@ -44,7 +44,7 @@ body {
 
 .ti {
 	width: 100%;
-	height: 158px;
+	height: 122px;
 	position: relative;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -198,4 +198,5 @@ a {
 a:hover {
 	text-decoration: underline;
 }
+
 

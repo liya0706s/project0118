@@ -123,7 +123,7 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse row" id="navbarNav">
-					<div class="col-10">
+					<div class="col-9">
 						<ul class="navbar-nav">
 
 							<li class="nav-item">
@@ -180,9 +180,9 @@
 							<!-- 有子選單結束 -->
 						</ul>
 					</div>
-					<div class="col-2 d-flex">
+					<div class="col-3 d-flex">
 						<!-- 判斷有沒有登入的狀態，顯示不同的連結 -->
-						<div class="item order-12">
+						<div class="item">
 							<?php
 							if (isset($_SESSION['login'])) {
 							?>
@@ -199,10 +199,10 @@
 							<?php
 							}
 							?>
-							<!-- <a class="nav-link active" href="?do=login">
-						<i class="fa-solid fa-right-to-bracket"></i>
-						&nbsp;&nbsp;管理登入
-						</a> -->
+						</div>
+						<div class="item">
+						<i class="fa-solid fa-chart-simple"></i>
+							今日人數 <?= $Total->find(1)['total']; ?>
 						</div>
 					</div>
 				</div>
@@ -218,7 +218,7 @@
 						?>
 						<a title="<?= $title['text']; ?>" href="index.php">
 							<!-- 按下標題都會回到首頁 -->
-							<div class="ti" style="background:url('./img/<?= $title['img']; ?>'); background-size:cover; w-100"></div>
+							<div class="ti" style="background:url('./img/<?= $title['img']; ?>'); background-size:contain"></div>
 							<!--標題-->
 						</a>
 					</div>
@@ -231,34 +231,10 @@
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div> -->
 
-
-		<div id="main" class="container-fluid">
-			<div class="row">
-				<div id="lf" class="col">
-					<!--左側主選單區開始-->
-
-					<!-- 左側主選單區結束 -->
-
-					<div id="menuput" class="dbor" style="margin-top:10px; line-height:50px;">
-						<div class="t">
-							<i class="fa-solid fa-chart-simple"></i>&nbsp;
-							VISITOR COUNTER |
-							TODAY <?= $Total->find(1)['total']; ?>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
 		<!-- bootstrap carousel start -->
 
 		<div class="container-fluid">
 			<div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
-				<div class="carousel-indicators">
-					<button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-					<button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-					<button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-				</div>
 				<div class="carousel-inner">
 					<?php
 					// 在這裡放入你的 PHP foreach 迴圈
@@ -272,7 +248,7 @@
 							<!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
 							<rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
 						</svg> -->
-							<img src="./img/<?= $img['img']; ?>" class="d-block w-100" alt="<?= $img['alt']; ?>">
+							<img src="./img/<?= $img['img']; ?>" class="d-block w-100" alt="<?= $img['alt']; ?>" style="">
 							<div class="container">
 								<div class="carousel-caption text-start">
 									<h1>556888Example headline.</h1>
