@@ -17,6 +17,14 @@ if(!isset($_SESSION['login'])){
 	<link href="./css/css.css" rel="stylesheet" type="text/css">
 	<script src="./js/jquery-1.9.1.min.js"></script>
 	<script src="./js/js.js"></script>
+
+	<!-- font-awesome cdn css -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<!-- bootstrap 5.2 cdn js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/js/bootstrap.min.js" integrity="sha512-Hqe3s+yLpqaBbXM6VA0cnj/T56ii5YjNrMT9v+us11Q81L0wzUG0jEMNECtugqNu2Uq5MSttCg0p4KK0kCPVaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<!-- bootstrap 5.2 cdn css-->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -26,6 +34,57 @@ if(!isset($_SESSION['login'])){
 			<div id="cvr" style="position:absolute; width:99%; height:100%; margin:auto; z-index:9898;"></div>
 		</div>
 	</div>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="index.php">
+					<i class="fa-solid fa-school"></i>
+				</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav">
+
+						<!-- 靜態導航項目 -->
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="back.php">網站標題管理</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="back.php">動態文字廣告管理</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="back.php">動畫圖片管理</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="back.php">校園映象資料管理</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="back.php">進站總人數管理</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="back.php">頁尾版權資料管理</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="back.php">最新消息資料管理</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="back.php">管理者帳號管理</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="back.php">選單管理</a>
+						</li>
+
+						<!-- 動態生成的主選單和子選單 -->
+						<?php
+						
+						?>
+
+					</ul>
+				</div>
+			</div>
+		</nav>
+
 	<div id="main">
 		<?php
 		$title = $Title->find(['sh' => 1]);
