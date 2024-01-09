@@ -78,18 +78,19 @@ if (!isset($_SESSION['login'])) {
 						<li class="nav-item">
 							<a class="nav-link active" aria-current="page" href="?do=menu">選單管理</a>
 						</li>
-
-
 						<!-- 動態生成的主選單和子選單 -->
 						<?php
 
 						?>
-
 					</ul>
 				</div>
-				<div class="col-2 order-5">
-					<button class="btn btn-primary">後台管理</button>
-					<button class="btn btn-primary">管理登出</button>
+				<div class="col-2 order-5 d-flex">
+					<a class="nav-link active me-5" href="?do=admin">
+				<i class="fa-solid fa-list-check"></i>&nbsp;&nbsp;後台管理
+					</a>
+					<a class="nav-link active" href="./api/logout.php">
+					<i class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;管理登出
+					</a>
 				</div>
 			</div>
 		</div>

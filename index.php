@@ -22,9 +22,6 @@
 	<!-- bootstrap 5.2 cdn js -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/js/bootstrap.min.js" integrity="sha512-Hqe3s+yLpqaBbXM6VA0cnj/T56ii5YjNrMT9v+us11Q81L0wzUG0jEMNECtugqNu2Uq5MSttCg0p4KK0kCPVaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-	<!-- bootstrap 5.2 cdn css-->
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/css/bootstrap.min.css" rel="stylesheet">
-
 	<!-- carousel script and link  -->
 	<script src="../assets/js/color-modes.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
@@ -125,35 +122,65 @@
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<div class="collapse navbar-collapse" id="navbarNav">
-					<ul class="navbar-nav">
+				<div class="collapse navbar-collapse row" id="navbarNav">
+					<div class="col-10">
+						<ul class="navbar-nav">
 
-						<li class="nav-item">
-							<a class="nav-link active" href="index.php">
-								<i class="fa-solid fa-school"></i>
-							</a>
-						</li>
+							<li class="nav-item">
+								<a class="nav-link active" href="index.php">
+									<i class="fa-solid fa-school"></i>
+								</a>
+							</li>
 
-						<!-- 靜態導航項目 -->
-						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="back.php">返回管理</a>
-						</li>
+							<!-- 靜態導航項目 -->
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="index.php">Home</a>
+							</li>
 
-						<!-- 動態生成的主選單和子選單 -->
-						<!-- 有子選單開始 -->
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="#">Action</a></li>
-								<li><a class="dropdown-item" href="#">Another action</a></li>
-								<li><a class="dropdown-item" href="#">Something else here</a></li>
-							</ul>
-						</li>
-						<!-- 有子選單結束 -->
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="index.php">Link</a>
+							</li>
 
+							<!-- 動態生成的主選單和子選單 -->
+							<!-- 有子選單開始 -->
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+								<ul class="dropdown-menu">
+									<li><a class="dropdown-item" href="#">Action</a></li>
+									<li><a class="dropdown-item" href="#">Another action</a></li>
+									<li><a class="dropdown-item" href="#">Something else here</a></li>
+								</ul>
+							</li>
+							<!-- 有子選單結束 -->
 
+						</ul>
+					</div>
+					<div class="col-2 d-flex">
+						<!-- 判斷有沒有登入的狀態，顯示不同的連結 -->
+						<div class="item order-12">
+							<?php
+							if (isset($_SESSION['login'])) {
 
-					</ul>
+							?>
+								<a class="nav-link active me-5" href="back.php">
+									<i class="fa-solid fa-list-check"></i>&nbsp;&nbsp;返回管理
+								</a>
+							<?php
+							} else {
+							?>
+								<a class="nav-link active" href="?do=login">
+									<i class="fa-solid fa-right-to-bracket"></i>
+									&nbsp;&nbsp;管理登入
+								</a>
+							<?php
+							}
+							?>
+							<!-- <a class="nav-link active" href="?do=login">
+						<i class="fa-solid fa-right-to-bracket"></i>
+						&nbsp;&nbsp;管理登入
+						</a> -->
+						</div>
+					</div>
 				</div>
 			</div>
 		</nav>
@@ -219,7 +246,11 @@
 					<!-- 主選單區結束 -->
 
 					<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
-						<span class="t">進站總人數 : <?= $Total->find(1)['total']; ?></span>
+						<div class="t">
+							<i class="fa-solid fa-chart-simple"></i>&nbsp;
+							VISITOR COUNTER | 
+							TODAY<?= $Total->find(1)['total']; ?>
+						</div>
 					</div>
 				</div>
 
@@ -243,21 +274,24 @@
 
 				<!-- 中間區塊結束 -->
 
+				<!-- 右邊區塊開始 -->
 				<div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
 					<!--右邊-->
-					<!-- 2023-12-18  寫判斷，如果登入使用者，返回管理;反之會是管理登入-->
+					<!-- 2023-12-18  寫判斷，如果登入使用者，返回管理;反之會是管理登入 start-->
 					<?php
-					if (isset($_SESSION['login'])) {
+					// if (isset($_SESSION['login'])) {
 
 					?>
-						<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="location.href='back.php'">返回管理</button>
+					<!-- <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="location.href='back.php'">返回管理</button> -->
 					<?php
-					} else {
+					// } else {
 					?>
-						<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="location.href='?do=login'">管理登入</button>
+					<!-- <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="location.href='?do=login'">管理登入</button> -->
 					<?php
-					}
+					// }
 					?>
+					<!-- 2023-12-18  寫判斷，如果登入使用者，返回管理;反之會是管理登入 end-->
+
 					<div style="width:89%; height:480px;" class="dbor">
 						<span class="t botli">校園映象區</span>
 
@@ -312,6 +346,7 @@
 						</script>
 					</div>
 				</div>
+				<!-- 右邊區塊結束 -->
 			</div>
 			<div style="clear:both;"></div>
 			<div style="width:100%; left:0px; position:relative; background:#FC3; margin-top:75px; height:123px; display:block;">
@@ -323,6 +358,5 @@
 
 <!-- 在文件末尾加入 Bootstrap JS 和 Popper.js -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
 
 </html>
