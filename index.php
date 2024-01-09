@@ -109,7 +109,7 @@
 		/* carousel style END  */
 	</style>
 	<!-- Custom styles for this carousel template -->
-	<link href="carousel.css" rel="stylesheet">
+	<link href="./css/carousel.css" rel="stylesheet">
 </head>
 
 <body>
@@ -177,14 +177,7 @@
 								echo "</li>";
 							}
 							?>
-
 							<!-- 有子選單結束 -->
-
-
-
-
-
-
 						</ul>
 					</div>
 					<div class="col-2 d-flex">
@@ -192,7 +185,6 @@
 						<div class="item order-12">
 							<?php
 							if (isset($_SESSION['login'])) {
-
 							?>
 								<a class="nav-link active me-5" href="back.php">
 									<i class="fa-solid fa-list-check"></i>&nbsp;&nbsp;返回管理
@@ -241,42 +233,13 @@
 
 
 		<div id="main" class="container-fluid">
-			<div id="ms" class="row">
-				<div id="lf" style="float:left;" class="col">
+			<div class="row">
+				<div id="lf" class="col">
 					<!--左側主選單區開始-->
-					<div id="menuput" class="dbor">
-						<span class="t botli">主選單區</span>
-						<?php
-						// 撈取全部的主選單(menu_id=0)且有顯示的
-						$mainmu = $Menu->all(['sh' => 1, 'menu_id' => 0]);
-						foreach ($mainmu as $main) {
-						?>
-							<div class="mainmu">
-								<a href="<?= $main['href']; ?>" style="color:#000; font-size:13px; text-decoration:none;"><?= $main['text']; ?></a>
-								<?php
-								// 去數>0代表，至少有一個次選單
-								if ($Menu->count(['menu_id' => $main['id']]) > 0) {
-									echo "<div class='mw'>";
-									$subs = $Menu->all(['menu_id' => $main['id']]);
-									foreach ($subs as $sub) {
-										echo "<a href='{$sub['href']}'>";
-										echo "<div class='mainmu2'>";
-										echo $sub['text'];
-										echo "</div>";
-										echo "</a>";
-									}
-									echo "</div>";
-								}
-								?>
-							</div>
 
-						<?php
-						}
-						?>
-					</div>
 					<!-- 左側主選單區結束 -->
 
-					<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
+					<div id="menuput" class="dbor" style="margin-top:10px; line-height:50px;">
 						<div class="t">
 							<i class="fa-solid fa-chart-simple"></i>&nbsp;
 							VISITOR COUNTER |
@@ -284,115 +247,103 @@
 						</div>
 					</div>
 				</div>
-
-				<div class="row">
-					<!-- 中間區塊開始 -->
-
-					<?php
-					$do = $_GET['do'] ?? 'main';
-					// 如果$do符合isset就是$_GET['do']，否則導入main
-					// $do = isset($_GET['do']) ? $_GET['do'] : 'main';
-					// 檔案的位置，$do設定為變數，多個頁面自動替換，不用打很長的程式碼
-					$file = "./front/{$do}.php";
-					// 判斷檔案是否存在(路徑包含檔名)，如果是亂打的會引入main.php
-					if (file_exists($file)) {
-						include $file;
-					} else {
-						include "./front/main.php";
-					}
-
-
-					?>
-
-					<!-- 中間區塊結束 -->
-				</div>
-
 			</div>
-			<div class="container-fluid">
-				<div class="row">
-					<!-- 右邊區塊開始 -->
-					<div class="di di ad" style="height:540px; padding:0px; margin-left:22px; float:left; ">
-						<!--右邊-->
-						<!-- 2023-12-18  寫判斷，如果登入使用者，返回管理;反之會是管理登入 start-->
-						<?php
-						// if (isset($_SESSION['login'])) {
+		</div>
 
-						?>
-						<!-- <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="location.href='back.php'">返回管理</button> -->
-						<?php
-						// } else {
-						?>
-						<!-- <button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="location.href='?do=login'">管理登入</button> -->
-						<?php
-						// }
-						?>
-						<!-- 2023-12-18  寫判斷，如果登入使用者，返回管理;反之會是管理登入 end-->
+		<!-- bootstrap carousel start -->
 
-						<!-- 這邊可以用carousel取代 -->
-						<div style="width:95%; height:480px;" class="dbor">
-							<span class="t botli">校園映象區</span>
-
-							<!-- 上箭頭 -->
-							<div class="cent" onclick="pp(1)">
-							<img src="./icon/up.jpg" alt=""></div>
-							<div id="ssaa1" class="im">
-						<img src="" alt="">
-					</div>
-							<?php
-							// 有被設定為顯示的才要
-							$imgs = $Image->all(['sh' => 1]);
-
-							foreach ($imgs as $idx => $img) {
-							?>
-								<div id="ssaa<?= $idx; ?>" class='im cent'>
-									<img src="./img/<?= $img['img']; ?>" style="width:150px;height:103px;border:3px solid orange;margin:3px">
+		<div class="container-fluid">
+			<div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+				<div class="carousel-indicators">
+					<button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+					<button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+					<button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+				</div>
+				<div class="carousel-inner">
+					<?php
+					// 在這裡放入你的 PHP foreach 迴圈
+					$imgs = $Image->all(['sh' => 1]);
+					foreach ($imgs as $idx => $img) {
+						// 判斷是否是第一個項目，並添加 active 類
+						$activeClass = ($idx === 0) ? 'active' : '';
+					?>
+						<div class="carousel-item <?= $activeClass; ?>">
+							<!-- svg這邊 放圖片 -->
+							<!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+							<rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+						</svg> -->
+							<img src="./img/<?= $img['img']; ?>" class="d-block w-100" alt="<?= $img['alt']; ?>">
+							<div class="container">
+								<div class="carousel-caption text-start">
+									<h1>556888Example headline.</h1>
+									<p class="opacity-75">Some representative placeholder content for the first slide of the carousel.</p>
+									<p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
 								</div>
-							<?php
-							}
-							?>
-							<!-- 下箭頭 -->
-							<div class="cent" onclick="pp(2)"><img src="./icon/dn.jpg" alt=""></div>
-
-							<script>
-								var nowpage = 1,
-									num = <?= $Image->count(['sh' => 1]); ?>;
-								// pp function裡面的參數x, (nowpage-1) 要加小括號
-								// 如果(現在頁面-1)>0,代表要往上一頁，現在至少是2
-								// 邏輯等同於分頁和萬年曆的上個月份 
-								// x意思是往前或是往後的判斷值, 如果每次要換頁一次換三張
-								// num代表總圖片數量 
-								function pp(x) {
-									var s, t;
-									if (x == 1 && nowpage - 1 >= 0) {
-										nowpage--;
-									}
-									if (x == 2 && (nowpage + 1) <= num * 1 - 3) {
-										nowpage++;
-									}
-									$(".im").hide()
-
-									// s 是for 迴圈中的計數器， 它的值在每次迭代中會分別是 0、 1、 2
-									// nowpage 是目前的頁碼， 它是一個外部定義的變數。
-									// t 是一個臨時變數， 用來存儲計算後的值
-
-									// 迴圈跑三次 0,1,2
-									for (s = 0; s <= 2; s++) {
-										t = s * 1 + nowpage * 1;
-										$("#ssaa" + t).show()
-									}
-								}
-								pp(2)
-								// 012共三張
-							</script>
+							</div>
+						</div>
+					<?php
+					}
+					?>
+					<div class="carousel-item">
+						<svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+							<rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+						</svg>
+						<div class="container">
+							<div class="carousel-caption">
+								<h1>Another example headline.</h1>
+								<p>Some representative placeholder content for the second slide of the carousel.</p>
+								<p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+							</div>
 						</div>
 					</div>
-					<!-- 右邊區塊結束 -->
+					<div class="carousel-item">
+						<svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+							<rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+						</svg>
+						<div class="container">
+							<div class="carousel-caption text-end">
+								<h1>One more for good measure.</h1>
+								<p>Some representative placeholder content for the third slide of this carousel.</p>
+								<p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+							</div>
+						</div>
+					</div>
 				</div>
+				<button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
 			</div>
-			<div style="clear:both;"></div>
-			<div style="width:100%; left:0px; position:relative; background:#FC3; margin-top:75px; height:123px; display:block;">
-				<span class="t" style="line-height:123px;"><?= $Bottom->find(1)['bottom']; ?></span>
+		</div>
+
+		<!-- bootstrap carousel end -->
+
+		<div class="container-fluid">
+			<div class="row">
+				<!-- 中間區塊開始 -->
+				<?php
+				$do = $_GET['do'] ?? 'main';
+				$file = "./front/{$do}.php";
+				// 判斷檔案是否存在(路徑包含檔名)，如果是亂打的會引入main.php
+				if (file_exists($file)) {
+					include $file;
+				} else {
+					include "./front/main.php";
+				}
+				?>
+				<!-- 中間區塊結束 -->
 			</div>
+
+		</div>
+
+		<div style="clear:both;"></div>
+		<div style="width:100%; left:0px; position:relative; background:#FC3; margin-top:75px; height:123px; display:block;">
+			<span class="t" style="line-height:123px;"><?= $Bottom->find(1)['bottom']; ?></span>
+		</div>
 		</div>
 	</main>
 </body>
