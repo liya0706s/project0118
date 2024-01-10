@@ -19,13 +19,13 @@
 	<script src="./js/js.js"></script>
 	<!-- font-awesome cdn css -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<!-- bootstrap 5.2 cdn js -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0-beta1/js/bootstrap.min.js" integrity="sha512-Hqe3s+yLpqaBbXM6VA0cnj/T56ii5YjNrMT9v+us11Q81L0wzUG0jEMNECtugqNu2Uq5MSttCg0p4KK0kCPVaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<!-- bootstrap 5.3.2 cdn js -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 	<!-- carousel script and link  -->
-	<script src="../assets/js/color-modes.js"></script>
+	<script src="./js/color-modes.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-	<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="./css/bootstrap.min.css" rel="stylesheet">
 
 	<style>
 		/* carousel style START  */
@@ -134,11 +134,11 @@
 
 							<!-- 靜態導航項目 -->
 							<li class="nav-item">
-								<a class="nav-link active" aria-current="page" href="index.php">Home</a>
+								<a class="nav-link" aria-current="page" href="index.php">Home</a>
 							</li>
 
 							<li class="nav-item">
-								<a class="nav-link active" aria-current="page" href="index.php">Link</a>
+								<a class="nav-link" aria-current="page" href="index.php">Link</a>
 							</li>
 
 							<!-- 動態生成的主選單和子選單 -->
@@ -201,7 +201,7 @@
 							?>
 						</div>
 						<div class="item">
-						<i class="fa-solid fa-chart-simple"></i>
+							<i class="fa-solid fa-chart-simple"></i>
 							今日人數 <?= $Total->find(1)['total']; ?>
 						</div>
 					</div>
@@ -233,67 +233,58 @@
 
 		<!-- bootstrap carousel start -->
 
-		<div class="container-fluid">
-			<div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
-				<div class="carousel-inner">
+		<div id="carouselExampleCaptions" class="carousel slide">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<!-- <img src="..." class="d-block w-100" alt="..."> -->
 					<?php
-					// 在這裡放入你的 PHP foreach 迴圈
 					$imgs = $Image->all(['sh' => 1]);
 					foreach ($imgs as $idx => $img) {
-						// 判斷是否是第一個項目，並添加 active 類
-						$activeClass = ($idx === 0) ? 'active' : '';
 					?>
-						<div class="carousel-item <?= $activeClass; ?>">
-							<!-- svg這邊 放圖片 -->
-							<!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-							<rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-						</svg> -->
-							<img src="./img/<?= $img['img']; ?>" class="d-block w-100" alt="<?= $img['alt']; ?>" style="">
-							<div class="container">
-								<div class="carousel-caption text-start">
-									<h1>556888Example headline.</h1>
-									<p class="opacity-75">Some representative placeholder content for the first slide of the carousel.</p>
-									<p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
-								</div>
-							</div>
+						<div class="w-100">
+							<img src="./img/<?= $img['img']; ?>" class="w-100">
 						</div>
 					<?php
 					}
 					?>
-					<div class="carousel-item">
-						<svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-							<rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-						</svg>
-						<div class="container">
-							<div class="carousel-caption">
-								<h1>Another example headline.</h1>
-								<p>Some representative placeholder content for the second slide of the carousel.</p>
-								<p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-							</div>
-						</div>
-					</div>
-					<div class="carousel-item">
-						<svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-							<rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
-						</svg>
-						<div class="container">
-							<div class="carousel-caption text-end">
-								<h1>One more for good measure.</h1>
-								<p>Some representative placeholder content for the third slide of this carousel.</p>
-								<p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
-							</div>
-						</div>
+					<div class="carousel-caption d-none d-md-block">
+						<h5>First slide label</h5>
+						<p>Some representative placeholder content for the first slide.</p>
 					</div>
 				</div>
-				<button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Previous</span>
-				</button>
-				<button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Next</span>
-				</button>
+				<div class="carousel-item">
+					<!-- <img src="..." class="d-block w-100" alt="..."> -->
+					<?php
+					$imgs = $Image->all(['sh' => 1]);
+					foreach ($imgs as $idx => $img) {
+					?>
+						<div class="w-100">
+							<img src="./img/<?= $img['img']; ?>" class="w-100">
+						</div>
+					<?php
+					}
+					?>
+					<div class="carousel-caption d-none d-md-block">
+						<h5>Second slide label</h5>
+						<p>Some representative placeholder content for the second slide.</p>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="..." class="d-block w-100" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+						<h5>Third slide label</h5>
+						<p>Some representative placeholder content for the third slide.</p>
+					</div>
+				</div>
 			</div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
 		</div>
 
 		<!-- bootstrap carousel end -->

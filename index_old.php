@@ -86,12 +86,13 @@
                 	<?php
 						}
 					?>
+
 					<div style="width:89%; height:480px;" class="dbor">
                     	<span class="t botli">校園映象區</span>
 						<div class="cent" onclick="pp(1)"><img src="./icon/up.jpg" alt=""></div>
+					
 					<?php
 					$imgs=$Image->all(['sh'=>1]);
-
 					foreach($imgs as $idx => $img){
 					?>
 						<div id="ssaa<?=$idx;?>" class='im cent' >
@@ -100,6 +101,7 @@
 					<?php
 					}
 					?>
+
 					<div class="cent" onclick="pp(2)"><img src="./icon/dn.jpg" alt=""></div>
 						<script>
                         	var nowpage=1,num=<?=$Image->count(['sh'=>1]);?>;
@@ -124,6 +126,7 @@
 
 							pp(2)
                         </script>
+
                     </div>
                 </div>
                             </div>
