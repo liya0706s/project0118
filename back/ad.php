@@ -1,12 +1,13 @@
-<div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
+<div>
+<!-- <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;"> -->
     <p class="t cent botli">動態文字廣告管理</p>
     <form method="post" action="./api/edit.php">
-        <table width="100%" style="text-align: center">
+        <table class="table" width="100%" style="text-align: center">
             <tbody>
                 <tr class="yel">
-                    <td width="80%">動態文字廣告</td>
-                    <td width="10%">顯示</td>
-                    <td width="10%">刪除</td>
+                    <td class="col-8">動態文字廣告</td>
+                    <td class="col-2">顯示</td>
+                    <td class="col-2">刪除</td>
                 </tr>
                 <?php
                 // 後台:用foreach迴圈將資料庫all()全部的資料倒進去value
