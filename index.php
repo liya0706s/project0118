@@ -181,29 +181,32 @@
 						</ul>
 					</div>
 					<div class="col-3 d-flex">
-						<!-- 判斷有沒有登入的狀態，顯示不同的連結 -->
-						<div class="item">
-							<?php
-							if (isset($_SESSION['login'])) {
-							?>
-								<a class="nav-link active me-5" href="back.php">
-									<i class="fa-solid fa-list-check"></i>&nbsp;返回管理
-								</a>
-							<?php
-							} else {
-							?>
-								<a class="nav-link active" href="?do=login">
-									<i class="fa-solid fa-right-to-bracket"></i>
-									&nbsp;&nbsp;管理登入
-								</a>
-							<?php
-							}
-							?>
-						</div>
-						<div class="item">
-							<i class="fa-solid fa-chart-simple me-1"></i>
-							今日人數 <?= $Total->find(1)['total']; ?>
-						</div>
+						<ul class="navbar-nav ml-auto">
+							<!-- 判斷有沒有登入的狀態，顯示不同的連結 -->
+							<li class="item">
+								<?php
+								if (isset($_SESSION['login'])) {
+								?>
+									<a class="nav-link active me-5" href="back.php">
+										<i class="fa-solid fa-list-check"></i>&nbsp;返回管理
+									</a>
+								<?php
+								} else {
+								?>
+									<a class="nav-link active" href="?do=login">
+										<i class="fa-solid fa-right-to-bracket"></i>
+										&nbsp;&nbsp;管理登入
+									</a>
+								<?php
+								}
+								?>
+							</li>
+							<li class="item">
+								<i class="fa-solid fa-chart-simple me-1"></i>
+								今日人數 <?= $Total->find(1)['total']; ?>
+							</li>
+						</ul>
+
 					</div>
 				</div>
 			</div>
