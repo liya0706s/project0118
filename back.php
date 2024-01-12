@@ -215,10 +215,8 @@ if (!isset($_SESSION['login'])) {
           </li>
         </ul>
       </div>
-
       <div class="b-example-vr"></div>
-
-      <div class="col">
+      <div class="col" style="width:1400px">
         <!-- 右下main area start -->
         <main>
           <?php
