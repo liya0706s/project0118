@@ -187,7 +187,7 @@
 							if (isset($_SESSION['login'])) {
 							?>
 								<a class="nav-link active me-5" href="back.php">
-									<i class="fa-solid fa-list-check"></i>&nbsp;&nbsp;返回管理
+									<i class="fa-solid fa-list-check"></i>&nbsp;返回管理
 								</a>
 							<?php
 							} else {
@@ -201,7 +201,7 @@
 							?>
 						</div>
 						<div class="item">
-							<i class="fa-solid fa-chart-simple"></i>
+							<i class="fa-solid fa-chart-simple me-1"></i>
 							今日人數 <?= $Total->find(1)['total']; ?>
 						</div>
 					</div>
@@ -209,28 +209,20 @@
 			</div>
 		</nav>
 
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-12">
-					<div class="item">
-						<?php
-						$title = $Title->find(['sh' => 1]);
-						?>
-						<a title="<?= $title['text']; ?>" href="index.php">
-							<!-- 按下標題都會回到首頁 -->
-							<div class="ti" style="background:url('./img/<?= $title['img']; ?>'); background-size:contain"></div>
-							<!--標題-->
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- alert 最新消息  -->
-		<!-- <div class="alert alert-warning alert-dismissible fade show fixed-top" role="alert" style="margin-top: 0; top: 0;">
-			<strong>SERVING LUNCH EVERY WEEKDAY!</strong> 11:00AM-2:30PM
+		<!-- alert 文字廣告 原本的marquee  -->
+		<div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 0; height:48px; margin-bottom:0">
+			<marquee>
+				<?php
+				$ads = $Ad->all(['sh' => 1]);
+				foreach ($ads as $ad) {
+					echo $ad['text'];
+					echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+				}
+				?>
+			</marquee>
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-		</div> -->
+		</div>
+		<!-- alert 文字廣告結束 -->
 
 		<!-- bootstrap carousel start -->
 
@@ -254,17 +246,7 @@
 					</div>
 				</div>
 				<div class="carousel-item">
-					<!-- <img src="..." class="d-block w-100" alt="..."> -->
-					<?php
-					$imgs = $Image->all(['sh' => 1]);
-					foreach ($imgs as $idx => $img) {
-					?>
-						<div class="w-100">
-							<img src="./img/<?= $img['img']; ?>" class="w-100">
-						</div>
-					<?php
-					}
-					?>
+					<img src="..." class="d-block w-100" alt="...">
 					<div class="carousel-caption d-none d-md-block">
 						<h5>Second slide label</h5>
 						<p>Some representative placeholder content for the second slide.</p>
