@@ -226,6 +226,7 @@
 			</div>
 		</div>
 
+		<!-- alert 最新消息  -->
 		<!-- <div class="alert alert-warning alert-dismissible fade show fixed-top" role="alert" style="margin-top: 0; top: 0;">
 			<strong>SERVING LUNCH EVERY WEEKDAY!</strong> 11:00AM-2:30PM
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

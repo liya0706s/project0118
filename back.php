@@ -116,7 +116,7 @@ if (!isset($_SESSION['login'])) {
   </svg>
 
   <!-- header start -->
-  <header class="navbar sticky-top bg-body-tertiary flex-md-nowrap shadow">
+  <header class="navbar sticky-top bg-body-tertiary flex-md-nowrap">
     <div class="container-fluid">
       <span class="navbar-brand mb-0 ms-4" style="font-weight:bold">Admin | Dashboard</span>
       <form class="d-flex">
@@ -127,118 +127,117 @@ if (!isset($_SESSION['login'])) {
   <!-- header end -->
 
   <!-- sidebar start -->
-  <div class="d-md-flex flex-nowrap offcanvas-body overflow-y-auto">
+  <div class="container-fluid d-md-flex flex-nowrap offcanvas-body overflow-y-auto">
+    <div class="row">
+      <div class="col-3 nav d-flex flex-column flex-shrink-0 p-3 text-bg-dark " style="width: 280px;">
 
-    <div class="nav d-flex flex-column flex-shrink-0 p-3 text-bg-dark " style="width: 280px;">
+        <a href="./back.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+          <svg class="bi pe-none me-2" width="40" height="32">
+            <use xlink:href="#bootstrap" />
+          </svg>
+          <span class="fs-4">後台管理系統</span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-3">
 
-      <a href="./back.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-        <svg class="bi pe-none me-2" width="40" height="32">
-          <use xlink:href="#bootstrap" />
-        </svg>
-        <span class="fs-4">後台管理系統</span>
-      </a>
-      <hr>
-      <ul class="nav nav-pills flex-column mb-3">
+          <li class="nav-item">
+            <a href="?do=ad" class="nav-link active" aria-current="page">
+              <svg class="bi pe-none me-2" width="16" height="16">
+                <use xlink:href="#home" />
+              </svg>
+              文字廣告
+            </a>
+          </li>
 
-        <li class="nav-item">
-          <a href="?do=ad" class="nav-link active" aria-current="page">
-            <svg class="bi pe-none me-2" width="16" height="16">
-              <use xlink:href="#home" />
-            </svg>
-            文字廣告
-          </a>
-        </li>
+          <li>
+            <a href="?do=image" class="nav-link text-white">
+              <svg class="bi pe-none me-2" width="16" height="16">
+                <use xlink:href="#speedometer2" />
+              </svg>
+              圖片管理
+            </a>
+          </li>
 
-        <li>
-          <a href="?do=image" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16">
-              <use xlink:href="#speedometer2" />
-            </svg>
-            圖片管理
-          </a>
-        </li>
+          <li>
+            <a href="?do=admin" class="nav-link text-white">
+              <svg class="bi pe-none me-2" width="16" height="16">
+                <use xlink:href="#table" />
+              </svg>
+              學生資料
+              <!-- 類似管理者帳號，下方可以新增 -->
+            </a>
+          </li>
 
-        <li>
-          <a href="?do=admin" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16">
-              <use xlink:href="#table" />
-            </svg>
-            學生資料
-            <!-- 類似管理者帳號，下方可以新增 -->
-          </a>
-        </li>
+          <li>
+            <a href="?do=total" class="nav-link text-white">
+              <svg class="bi pe-none me-2" width="16" height="16">
+                <use xlink:href="#grid" />
+              </svg>
+              今日人數
+            </a>
+          </li>
 
-        <li>
-          <a href="?do=total" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16">
-              <use xlink:href="#grid" />
-            </svg>
-            今日人數
-          </a>
-        </li>
+          <li>
+            <a href="?do=news" class="nav-link text-white">
+              <svg class="bi pe-none me-2" width="16" height="16">
+                <use xlink:href="#people-circle" />
+              </svg>
+              最新消息
+            </a>
+          </li>
 
-        <li>
-          <a href="?do=news" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16">
-              <use xlink:href="#people-circle" />
-            </svg>
-            最新消息
-          </a>
-        </li>
+          <li>
+            <a href="?do=admin" class="nav-link text-white">
+              <svg class="bi pe-none me-2" width="16" height="16">
+                <use xlink:href="#table" />
+              </svg>
+              管理者帳號
+              <!-- 上面編輯刪除，下方可以新增類似bquiz02，可以做分頁 -->
+            </a>
+          </li>
 
-        <li>
-          <a href="?do=admin" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16">
-              <use xlink:href="#table" />
-            </svg>
-            管理者帳號
-            <!-- 上面編輯刪除，下方可以新增類似bquiz02，可以做分頁 -->
-          </a>
-        </li>
+          <li>
+            <a href="?do=menu" class="nav-link text-white">
+              <svg class="bi pe-none me-2" width="16" height="16">
+                <use xlink:href="#people-circle" />
+              </svg>
+              選單管理
+            </a>
+          </li>
 
-        <li>
-          <a href="?do=menu" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16">
-              <use xlink:href="#people-circle" />
-            </svg>
-            選單管理
-          </a>
-        </li>
+          <li>
+            <a href="?=msg" class="nav-link text-white">
+              <svg class="bi pe-none me-2" width="16" height="16">
+                <use xlink:href="#people-circle" />
+              </svg>
+              留言管理
+            </a>
+          </li>
+        </ul>
+      </div>
 
-        <li>
-          <a href="?=msg" class="nav-link text-white">
-            <svg class="bi pe-none me-2" width="16" height="16">
-              <use xlink:href="#people-circle" />
-            </svg>
-            留言管理
-          </a>
-        </li>
-      </ul>
+      <div class="b-example-vr"></div>
+
+      <div class="col">
+        <!-- 右下main area start -->
+        <main>
+          <?php
+
+          $do = $_GET['do'] ?? 'title';
+          $file = "./back/{$do}.php";
+          if (file_exists($file)) {
+            include $file;
+          } else {
+            include "./back/title.php";
+          }
+
+          ?>
+        </main>
+        <!-- 右下main area end -->
+      </div>
     </div>
-
-    <div class="b-example-vr"></div>
   </div>
   <!-- sidebar end -->
-
-  <!-- 右下main area start -->
-  <main>
-    <!--正中央-->
-    <?php
-
-    $do = $_GET['do'] ?? 'title';
-    $file = "./back/{$do}.php";
-    if (file_exists($file)) {
-      include $file;
-    } else {
-      include "./back/title.php";
-    }
-
-    ?>
-  </main>
-
-  <!-- 右下main area end -->
-
-
 
 
   <script src="./js/bootstrap.bundle.min.js"></script>
