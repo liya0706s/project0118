@@ -227,16 +227,50 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+						<h3 class="modal-title ms-4" id="exampleModalLabel">登入</h3>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
-						...
+						<!-- ... -->
+						<?php
+						// 透過session，如果有登入成功就直接到後台
+						if (isset($_SESSION['login'])) {
+							to("back.php");
+						}
+
+						// 登入的功能，這裡是GET傳值的error 帳號或密碼錯誤
+						if (isset($_GET['error'])) {
+							echo "<span style='color:red;'> {$_GET['error']} </span>";
+						}
+						?>
+
+						<div class="container mt-3">
+							<h3></h3>
+							<form action="../api/check.php">
+								<div class="mb-3 mt-3">
+									<label for="acc">帳號:</label>
+									<input type="text" class="form-control" id="acc" placeholder="Enter acc" name="acc">
+								</div>
+								<div class="mb-3 mt-3">
+									<label for="pw">密碼:</label>
+									<input type="password" class="form-control" id="pw" placeholder="Enter password" name="pw">
+								</div>
+								<div class="form-check mb-3">
+									<label class="form-check-label">
+										<!-- <input class="form-check-input" type="checkbox" name="remember"> 註冊 -->
+										<a href="./front/reg.php">註冊帳號</a>
+									</label>
+								</div>
+								<!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+								<div class="modal-footer">
+									<button type="reset" class="btn btn-secondary">重置</button>
+									<button type="submit" class="btn btn-primary">送出</button>
+								</div>
+							</form>
+						</div>
+
 					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save changes</button>
-					</div>
+
 				</div>
 			</div>
 		</div>
