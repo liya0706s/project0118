@@ -1,5 +1,7 @@
-<div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
-    <p class="t cent botli">頁尾版權資料管理</p>
+<!-- <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
+    <p class="t cent botli">頁尾版權資料管理</p> -->
+    <div>
+    <p>頁尾版權資料管理</p>
     <form method="post" action="/api/edit_info.php">
         <table style="width:50%;margin:auto">
             <tbody>

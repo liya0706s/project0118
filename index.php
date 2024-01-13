@@ -273,11 +273,41 @@
 
 		</div>
 
-		<div style="clear:both;"></div>
+		<!-- footer start -->
+		<!-- <div style="clear:both;"></div>
 		<div style="width:100%; left:0px; position:relative; background:#FC3; margin-top:75px; height:123px; display:block;">
 			<span class="t" style="line-height:123px;"><?= $Bottom->find(1)['bottom']; ?></span>
 		</div>
-		</div>
+		</div> -->
+
+		<div class="container">
+      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+          <a href="https://getbootstrap.com/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-0.5">
+            <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+          </a>
+          <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Angie Lee Website. All rights reserved.</span>
+        </div>
+    
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+          <li class="ms-3">
+            <a class="text-body-secondary" href="https://www.facebook.com">
+              <i class="fa-brands fa-facebook fa-xl" style="color: #6c757d;"></i>
+            </a>
+          </li>
+          <li class="ms-3">
+            <a class="text-body-secondary" href="https://www.instagram.com">
+              <i class="fa-brands fa-instagram fa-xl" style="color: #6c757d;"></i>
+          </a></li>
+          <li class="ms-3">
+            <a class="text-body-secondary" href="https://www.instagram.com">
+              <i class="fa-brands fa-threads fa-xl" style="color: #6c757d;"></i>
+          </a></li>
+        </ul>
+      </footer>
+    </div>
+
+    <!-- footer end  -->
 	</main>
 </body>
 
