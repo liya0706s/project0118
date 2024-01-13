@@ -273,13 +273,6 @@
 
 		</div>
 
-		<!-- footer start -->
-		<!-- <div style="clear:both;"></div>
-		<div style="width:100%; left:0px; position:relative; background:#FC3; margin-top:75px; height:123px; display:block;">
-			<span class="t" style="line-height:123px;"><?= $Bottom->find(1)['bottom']; ?></span>
-		</div>
-		</div> -->
-
 		<div class="container">
       <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class="col-md-4 d-flex align-items-center">
