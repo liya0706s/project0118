@@ -105,9 +105,10 @@
 		.bd-mode-toggle .dropdown-menu .active .bi {
 			display: block !important;
 		}
+
 		/* carousel style END  */
-		.carousel-item img{
-		vertical-align: middle;
+		.carousel-item img {
+			vertical-align: middle;
 		}
 	</style>
 	<!-- Custom styles for this carousel template -->
@@ -165,7 +166,7 @@
 								echo "'>";
 
 								echo "<a class='nav-link";
-								echo $hasSub ? " dropdown-toggle' href='#' id='navbarDropdown{$main['id']}' role='button' data-bs-toggle='dropdown' aria-expanded='false'" : "' href='{$main['href']}'";
+								echo $hasSub ? " dropdown-toggle' href='#' id='navbarDropdown{$main['id']}' role='button' data-bs-toggle='dropdown' aria-expanded='false'" : "' data-bs-toggle='modal' data-bs-target='#exampleModal' href='{$main['href']}'";
 								echo ">{$main['text']}</a>";
 
 								if ($hasSub) {
@@ -182,6 +183,7 @@
 							<!-- 有子選單結束 -->
 						</ul>
 					</div>
+
 					<div class="col-3 d-flex">
 						<ul class="navbar-nav ml-auto">
 							<!-- 判斷有沒有登入的狀態，顯示不同的連結 -->
@@ -213,6 +215,31 @@
 				</div>
 			</div>
 		</nav>
+
+		<!-- Button trigger modal -->
+		<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+						Launch demo modal -->
+		<!-- data-bs-toggle='modal' data-bs-target='#exampleModal'接在nav管理登入的a連結中 -->
+		</button>
+
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						...
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<!-- alert 文字廣告 原本的marquee  -->
 		<div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 0; height:52px; margin-bottom:0">
@@ -274,33 +301,37 @@
 		</div>
 
 		<div class="container">
-      <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <div class="col-md-4 d-flex align-items-center">
-          <a href="https://getbootstrap.com/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-0.5">
-            <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-          </a>
-          <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Angie Lee Website. All rights reserved.</span>
-        </div>
-    
-        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-          <li class="ms-3">
-            <a class="text-body-secondary" href="https://www.facebook.com">
-              <i class="fa-brands fa-facebook fa-xl" style="color: #6c757d;"></i>
-            </a>
-          </li>
-          <li class="ms-3">
-            <a class="text-body-secondary" href="https://www.instagram.com">
-              <i class="fa-brands fa-instagram fa-xl" style="color: #6c757d;"></i>
-          </a></li>
-          <li class="ms-3">
-            <a class="text-body-secondary" href="https://www.instagram.com">
-              <i class="fa-brands fa-threads fa-xl" style="color: #6c757d;"></i>
-          </a></li>
-        </ul>
-      </footer>
-    </div>
+			<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+				<div class="col-md-4 d-flex align-items-center">
+					<a href="https://getbootstrap.com/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-0.5">
+						<svg class="bi" width="30" height="24">
+							<use xlink:href="#bootstrap"></use>
+						</svg>
+					</a>
+					<span class="mb-3 mb-md-0 text-body-secondary">© 2024 Angie Lee Website. All rights reserved.</span>
+				</div>
 
-    <!-- footer end  -->
+				<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+					<li class="ms-3">
+						<a class="text-body-secondary" href="https://www.facebook.com">
+							<i class="fa-brands fa-facebook fa-xl" style="color: #6c757d;"></i>
+						</a>
+					</li>
+					<li class="ms-3">
+						<a class="text-body-secondary" href="https://www.instagram.com">
+							<i class="fa-brands fa-instagram fa-xl" style="color: #6c757d;"></i>
+						</a>
+					</li>
+					<li class="ms-3">
+						<a class="text-body-secondary" href="https://www.instagram.com">
+							<i class="fa-brands fa-threads fa-xl" style="color: #6c757d;"></i>
+						</a>
+					</li>
+				</ul>
+			</footer>
+		</div>
+
+		<!-- footer end  -->
 	</main>
 </body>
 
