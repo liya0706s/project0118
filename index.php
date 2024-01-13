@@ -105,8 +105,10 @@
 		.bd-mode-toggle .dropdown-menu .active .bi {
 			display: block !important;
 		}
-
 		/* carousel style END  */
+		.carousel-item img{
+		vertical-align: middle;
+		}
 	</style>
 	<!-- Custom styles for this carousel template -->
 	<link href="./css/carousel.css" rel="stylesheet">
@@ -201,7 +203,7 @@
 								}
 								?>
 							</li>
-							<li class="item">
+							<li class="item mt-2">
 								<i class="fa-solid fa-chart-simple me-1"></i>
 								今日人數 <?= $Total->find(1)['total']; ?>
 							</li>
@@ -213,7 +215,7 @@
 		</nav>
 
 		<!-- alert 文字廣告 原本的marquee  -->
-		<div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 0; height:48px; margin-bottom:0">
+		<div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 0; height:52px; margin-bottom:0">
 			<marquee>
 				<?php
 				$ads = $Ad->all(['sh' => 1]);
@@ -229,45 +231,23 @@
 
 		<!-- bootstrap carousel start -->
 
-		<div id="carouselExampleCaptions" class="carousel slide">
+		<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
 			<div class="carousel-inner">
-				<div class="carousel-item active">
-					<!-- <img src="..." class="d-block w-100" alt="..."> -->
-					<?php
-					$imgs = $Image->all(['sh' => 1]);
-					foreach ($imgs as $idx => $img) {
-					?>
-						<div class="w-100">
-							<img src="./img/<?= $img['img']; ?>" class="w-100">
-						</div>
-					<?php
-					}
-					?>
-					<div class="carousel-caption d-none d-md-block">
-						<h5>First slide label</h5>
-						<p>Some representative placeholder content for the first slide.</p>
-					</div>
+				<div class="carousel-item active" data-bs-interval="3000">
+					<img src="./img/school.jpg" class="d-block w-100" alt="...">
 				</div>
-				<div class="carousel-item">
-					<img src="..." class="d-block w-100" alt="...">
-					<div class="carousel-caption d-none d-md-block">
-						<h5>Second slide label</h5>
-						<p>Some representative placeholder content for the second slide.</p>
-					</div>
+				<div class="carousel-item" data-bs-interval="3000">
+					<img src="./img/Photo-Joshua_White-jwpictures.com-0311(1).jpg" class="d-block w-100" alt="...">
 				</div>
-				<div class="carousel-item">
-					<img src="..." class="d-block w-100" alt="...">
-					<div class="carousel-caption d-none d-md-block">
-						<h5>Third slide label</h5>
-						<p>Some representative placeholder content for the third slide.</p>
-					</div>
+				<div class="carousel-item" data-bs-interval="3000">
+					<img src="./img/maxresdefault.jpg" class="d-block w-100" alt="...">
 				</div>
 			</div>
-			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
 				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 				<span class="visually-hidden">Previous</span>
 			</button>
-			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
 				<span class="carousel-control-next-icon" aria-hidden="true"></span>
 				<span class="visually-hidden">Next</span>
 			</button>
