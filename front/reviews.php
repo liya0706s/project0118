@@ -1,7 +1,7 @@
 <?php
 include_once "./api/db.php";
 
-$rows = $Reviews->all();
+$rows = $Reviews->all(" limit 1");
 foreach ($rows as $row) {
 	// dd($rows);
 	// break;
@@ -12,18 +12,20 @@ foreach ($rows as $row) {
 			<div class="col-md-7">
 				<!-- title -->
 				<h2 class="featurette-heading fw-normal lh-1">
-					<!-- 55688First featurette heading. -->
-					<?=$row['title'];?>
-					<!-- subtitle -->
-					<span class="text-body-secondary">
-						<!-- It’ll blow your mind. -->
-						<?=$row['subti'];?>
-					</span>
+					<!-- 55688.... -->
+					<?= $row['title']; ?>
 				</h2>
+
+				<!-- subtitle -->
+				<span class="text-body-secondary fs-2">
+					<!-- content..... -->
+					<?= $row['subti']; ?>
+				</span>
+
 				<!-- review -->
 				<p class="lead">
 					<!-- Some great placeholder content for the first featurette here. Imagine some exciting prose here. -->
-				<?=$row['review'];?>
+					<?= $row['review']; ?>
 				</p>
 			</div>
 			<div class="col-md-5">
@@ -32,26 +34,55 @@ foreach ($rows as $row) {
 					<title>Placeholder</title>
 					<rect width="100%" height="100%" fill="var(--bs-secondary-bg)" /><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
 				</svg> -->
-				<img src="https://picsum.photos/26/800/600" alt="">
+				<img src="https://picsum.photos/id/24/800/600" alt="">
 			</div>
 		</div>
 
-		<hr class="featurette-divider">
-
 	<?php
+
 }
 	?>
 
-	<div class="row featurette">
-		<div class="col-md-7 order-md-2">
-			<h2 class="featurette-heading fw-normal lh-1">4567Oh yeah, it’s that good. <span class="text-body-secondary">See for yourself.</span></h2>
-			<p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+	<hr class="featurette-divider">
+
+	<?php
+	// $rows=$News->all(['sh'=>1]," order by `good` desc limit $start,$div");
+	$rows = $Reviews->all(['id' => 2], " limit 1");
+	foreach ($rows as $row) {
+		// dd($rows);
+		// break;
+	?>
+
+		<div class="row featurette">
+			<div class="col-md-7 order-md-2">
+				<!-- title -->
+				<h2 class="featurette-heading fw-normal lh-1">
+					<?= $row['title']; ?>
+					<!-- 4567Oh yeah, it’s that good. -->
+				</h2>
+
+				<!-- subtitle -->
+				<span class="text-body-secondary">
+					<?= $row['subti']; ?>
+					<!-- See for yourself. -->
+				</span>
+				<!-- review -->
+				<p class="lead">
+					<?= $row['review']; ?>
+					<!-- Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place. -->
+				</p>
+			</div>
+			<div class="col-md-5 order-md-1">
+				<svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+					<title>Placeholder</title>
+					<rect width="100%" height="100%" fill="var(--bs-secondary-bg)" /><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
+				</svg>
+			</div>
 		</div>
-		<div class="col-md-5 order-md-1">
-			<svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
-				<title>Placeholder</title>
-				<rect width="100%" height="100%" fill="var(--bs-secondary-bg)" /><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
-			</svg>
-		</div>
-	</div>
+
+
+	<?php
+	}
+	?>
+
 	</div>
