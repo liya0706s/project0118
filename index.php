@@ -141,7 +141,7 @@
 							</li>
 
 							<li class="nav-item">
-								<a class="nav-link" aria-current="page" href="index.php">Link</a>
+								<a class="nav-link" aria-current="page" href="#product">Product</a>
 							</li>
 
 							<!-- 動態生成的主選單和子選單 -->
@@ -197,9 +197,10 @@
 								<?php
 								} else {
 								?>
-									<a class="nav-link active" href="?do=login">
+									<!-- open sidebar / offcanvas -->
+									<a class="nav-link active" href="#sidebar" data-bs-toggle="offcanvas" role="button" aria-controls="sidebar-label">
 										<i class="fa-solid fa-right-to-bracket"></i>
-										&nbsp;&nbsp;管理登入
+										&nbsp;Log in
 									</a>
 								<?php
 								}
@@ -216,11 +217,58 @@
 			</div>
 		</nav>
 
+		<!-- offcanvas -->
+		<div class="offcanvas offcanvas-end" tabindex="-1" id="sidebar" aria-labelledby="sidebar-label">
+			<div class="offcanvas-header">
+				<h5 class="offcanvas-title" id="sidebar-label">會員登入</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
+			<div class="offcanvas-body">
+				<?php
+				// 透過session，如果有登入成功就直接到後台
+				if (isset($_SESSION['login'])) {
+					to("back.php");
+				}
+
+				// 登入的功能，這裡是GET傳值的error 帳號或密碼錯誤
+				if (isset($_GET['error'])) {
+					echo "<span style='color:red;'> {$_GET['error']} </span>";
+				}
+				?>
+
+				<div class="container mt-3">
+					<h3></h3>
+					<form action="../api/check.php">
+						<div class="mb-3 mt-3">
+							<label for="acc">帳號:</label>
+							<input type="text" class="form-control" id="acc" placeholder="Enter acc" name="acc">
+						</div>
+						<div class="mb-3 mt-3">
+							<label for="pw">密碼:</label>
+							<input type="password" class="form-control" id="pw" placeholder="Enter password" name="pw">
+						</div>
+						<div class="form-check mb-3">
+							<label class="form-check-label">
+								<!-- <input class="form-check-input" type="checkbox" name="remember"> 註冊 -->
+								<a href="./front/reg.php">註冊帳號</a>
+							</label>
+						</div>
+						<!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+						<div class="modal-footer">
+							<button type="reset" class="btn btn-secondary">重置</button>
+							<button type="submit" class="btn btn-primary">送出</button>
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
+
 		<!-- Button trigger modal -->
 		<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
 						Launch demo modal -->
 		<!-- data-bs-toggle='modal' data-bs-target='#exampleModal'接在nav管理登入的a連結中 -->
-		</button>
+		<!-- </button> -->
 
 		<!-- Modal -->
 		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -314,6 +362,59 @@
 			</button>
 		</div>
 
+		<!-- product plans -->
+		<section id="product" class="bg-light mt-5">
+			<div class="container-fluid">
+				<div class="text-center">
+					<h2>Pricing Plans</h2>
+					<p class="lead text-muted">Choose a pricing plan to suit you</p>
+				</div>
+
+				<div class="row my-5 align-items-center justify-content-center g-5 mt-0">
+					<div class="col-8 col-lg-4 col-xl-3">
+						<div class="card border-0 mb-2" >
+							<img src="./img/KIBO-120519_9358.jpg" class="card-img-top" alt="...">
+							<div class="card-body text-center py-4">
+								<h4 class="card-title">Start Edition</h4>
+								<p class="lead card-subtitle">eBook download only</p>
+								<p class="display-5 my-4 text-primary fw-bold">$99.9</p>
+								<p class="card-text mx-5 text-muted d-none d-lg-block">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+								<a href="./front/shop.php" class="btn btn-outline-primary btn-lg mt-3 text-decoration-none">Buy Now</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-8 col-lg-4 col-xl-3">
+						<div class="card border-2 border-primary mb-2">
+						<di class="card-header text-center text-primary">Most Popular</di>
+							<img src="./img/multi-page.png" class="card-img-top border border-light" alt="...">
+							<div class="card-body text-center py-4">
+								<h4 class="card-title">Start Edition</h4>
+								<p class="lead card-subtitle">eBook download only</p>
+								<p class="display-5 my-4 text-primary fw-bold">$99.9</p>
+								<p class="card-text mx-5 text-muted d-none d-lg-block">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+								<a href="./front/shop.php" class="btn btn-outline-primary btn-lg mt-3 text-decoration-none">Buy Now</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-8 col-lg-4 col-xl-3">
+						<div class="card border-0 mb-2" style="">
+							<img src="./img/scratch_microbit.jpg" class="card-img-top border border-light" alt="..." style="height:12rem">
+							<div class="card-body text-center py-4">
+								<h4 class="card-title">Start Edition</h4>
+								<p class="lead card-subtitle">eBook download only</p>
+								<p class="display-5 my-4 text-primary fw-bold">$99.9</p>
+								<p class="card-text mx-5 text-muted d-none d-lg-block">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+								<a href="./front/shop.php" class="btn btn-outline-primary btn-lg mt-3 text-decoration-none">Buy Now</a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+		</section>
+
+
 		<!-- bootstrap carousel end -->
 
 		<div class="container-fluid">
@@ -364,7 +465,6 @@
 				</ul>
 			</footer>
 		</div>
-
 		<!-- footer end  -->
 	</main>
 </body>

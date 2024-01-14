@@ -6,8 +6,7 @@ if($Admin->count(['acc'=> $_POST['acc'],'pw'=>$_POST['pw']])>0){
     // 只是要檢查有沒有登入成功，也可避免資料外洩或被攔截
     $_SESSION['login']=$_POST['acc'];
     // 用count所以是表單來的資料，表單來的比較值觀
-    to("../back.php");
-    // 登入狀態用session，用php會比較方便自動啟用，db裡已經有seesion_start不用再寫
+    to("./back.php");
 }else{
 to("../index.php?do=login&error=帳號或密碼錯誤");
 }
