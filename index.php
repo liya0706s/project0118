@@ -200,7 +200,7 @@
 									<!-- open sidebar / offcanvas -->
 									<a class="nav-link active" href="#sidebar" data-bs-toggle="offcanvas" role="button" aria-controls="sidebar-label">
 										<i class="fa-solid fa-right-to-bracket"></i>
-										&nbsp;Log in
+										&nbsp;管理登入
 									</a>
 								<?php
 								}
@@ -224,21 +224,24 @@
 				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 			</div>
 			<div class="offcanvas-body">
-				<?php
-				// 透過session，如果有登入成功就直接到後台
-				if (isset($_SESSION['login'])) {
-					to("back.php");
-				}
+				<form action="../api/check.php" method="post">
+					<?php
+					// 透過session，如果有登入成功就直接到後台
+					if (isset($_SESSION['login'])) {
+						to("../back.php");
+					}
 
-				// 登入的功能，這裡是GET傳值的error 帳號或密碼錯誤
-				if (isset($_GET['error'])) {
-					echo "<span style='color:red;'> {$_GET['error']} </span>";
-				}
-				?>
+					// 登入的功能，這裡是GET傳值的error 帳號或密碼錯誤
+					if (isset($_GET['error'])) {
+						echo "<span style='color:red;'>";
+						echo $_GET['error'];
+						unset($_GET['error']);
+						echo "</span>";
+					}
+					?>
 
-				<div class="container mt-3">
-					<h3></h3>
-					<form action="../api/check.php">
+					<div class="container mt-3">
+						<h3></h3>
 						<div class="mb-3 mt-3">
 							<label for="acc">帳號:</label>
 							<input type="text" class="form-control" id="acc" placeholder="Enter acc" name="acc">
@@ -258,10 +261,10 @@
 							<button type="reset" class="btn btn-secondary">重置</button>
 							<button type="submit" class="btn btn-primary">送出</button>
 						</div>
-					</form>
-				</div>
-
+				</form>
 			</div>
+
+		</div>
 		</div>
 
 		<!-- Button trigger modal -->
@@ -283,12 +286,15 @@
 						<?php
 						// 透過session，如果有登入成功就直接到後台
 						if (isset($_SESSION['login'])) {
-							to("back.php");
+							to("../back.php");
 						}
 
 						// 登入的功能，這裡是GET傳值的error 帳號或密碼錯誤
 						if (isset($_GET['error'])) {
-							echo "<span style='color:red;'> {$_GET['error']} </span>";
+							echo "<span style='color:red;'>";
+							echo $_GET['error'];
+							unset($_GET['error']);
+							echo "</span>";
 						}
 						?>
 
@@ -362,7 +368,7 @@
 			</button>
 		</div>
 
-		<!-- product plans -->
+		<!-- product plans start -->
 		<section id="product" class="bg-light mt-5">
 			<div class="container-fluid">
 				<div class="text-center">
@@ -372,7 +378,7 @@
 
 				<div class="row my-5 align-items-center justify-content-center g-5 mt-0">
 					<div class="col-8 col-lg-4 col-xl-3">
-						<div class="card border-0 mb-2" >
+						<div class="card border-0 mb-2">
 							<img src="./img/KIBO-120519_9358.jpg" class="card-img-top" alt="...">
 							<div class="card-body text-center py-4">
 								<h4 class="card-title">Start Edition</h4>
@@ -386,7 +392,7 @@
 
 					<div class="col-8 col-lg-4 col-xl-3">
 						<div class="card border-2 border-primary mb-2">
-						<di class="card-header text-center text-primary">Most Popular</di>
+							<di class="card-header text-center text-primary">Most Popular</di>
 							<img src="./img/multi-page.png" class="card-img-top border border-light" alt="...">
 							<div class="card-body text-center py-4">
 								<h4 class="card-title">Start Edition</h4>
@@ -400,7 +406,7 @@
 
 					<div class="col-8 col-lg-4 col-xl-3">
 						<div class="card border-0 mb-2" style="">
-							<img src="./img/scratch_microbit.jpg" class="card-img-top border border-light" alt="..." style="height:12rem">
+							<img src="./img/scratch_microbit.jpg" class="card-img-top border border-light" alt="..." style="height: 13rem;">
 							<div class="card-body text-center py-4">
 								<h4 class="card-title">Start Edition</h4>
 								<p class="lead card-subtitle">eBook download only</p>
@@ -414,6 +420,7 @@
 				</div>
 		</section>
 
+		<!-- product plans end -->
 
 		<!-- bootstrap carousel end -->
 
