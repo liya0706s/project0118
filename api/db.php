@@ -170,6 +170,8 @@ $Image = new DB('image');
 $News = new DB('news');
 $Admin = new DB('admin');
 $Menu = new DB('menu');
+$Reviews = new DB('reviews');
+
 
 
 // 大寫DB帶入其他網頁變成全域變數
