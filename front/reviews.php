@@ -34,7 +34,7 @@ foreach ($rows as $row) {
 					<title>Placeholder</title>
 					<rect width="100%" height="100%" fill="var(--bs-secondary-bg)" /><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
 				</svg> -->
-				<img src="https://picsum.photos/id/24/800/600" alt="">
+				<img src="https://picsum.photos/id/119/500/500" alt="">
 			</div>
 		</div>
 
@@ -62,7 +62,7 @@ foreach ($rows as $row) {
 				</h2>
 
 				<!-- subtitle -->
-				<span class="text-body-secondary">
+				<span class="text-body-secondary fs-2">
 					<?= $row['subti']; ?>
 					<!-- See for yourself. -->
 				</span>
@@ -73,10 +73,11 @@ foreach ($rows as $row) {
 				</p>
 			</div>
 			<div class="col-md-5 order-md-1">
-				<svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
+				<!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
 					<title>Placeholder</title>
 					<rect width="100%" height="100%" fill="var(--bs-secondary-bg)" /><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
-				</svg>
+				</svg> -->
+				<img src="https://picsum.photos/id/109/500/500" alt="">
 			</div>
 		</div>
 
