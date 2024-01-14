@@ -13,6 +13,8 @@
 	<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="icon" href="./img/kids_coding-removebg-preview.png" type="image/x-icon">
 	<title>從小學程式，程式從小學</title>
 	<link href="./css/css.css" rel="stylesheet" type="text/css">
 	<script src="./js/jquery-1.9.1.min.js"></script>
@@ -122,22 +124,24 @@
 				<!-- <a class="navbar-brand" href="index.php">
 					<i class="fa-solid fa-school"></i>
 				</a> -->
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse row" id="navbarNav">
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse row" id="navbarNav">
+					</div>
 					<div class="col-9">
 						<ul class="navbar-nav">
 
 							<li class="nav-item">
-								<a class="nav-link active" href="index.php">
-									<i class="fa-solid fa-school"></i>
+								<a class="nav-link active" href="#">
+									<i class="fa-solid fa-code"></i>
+									<!-- <img src="./img/kids_coding-removebg-preview.png" style="width:25px; height:25px"> -->
 								</a>
 							</li>
 
 							<!-- 靜態導航項目 -->
 							<li class="nav-item">
-								<a class="nav-link" aria-current="page" href="index.php">Home</a>
+								<a class="nav-link" aria-current="page" href="#">Home</a>
 							</li>
 
 							<li class="nav-item">
@@ -188,7 +192,7 @@
 						</ul>
 					</div>
 
-					<div class="col-3 d-flex">
+					<div class="col-3  d-flex">
 						<ul class="navbar-nav ml-auto">
 							<!-- 判斷有沒有登入的狀態，顯示不同的連結 -->
 							<li class="item">
@@ -217,58 +221,58 @@
 						</ul>
 
 					</div>
-				</div>
 			</div>
 		</nav>
 
-		<!-- offcanvas -->
-		<div class="offcanvas offcanvas-end" tabindex="-1" id="sidebar" aria-labelledby="sidebar-label">
-			<div class="offcanvas-header">
-				<h5 class="offcanvas-title" id="sidebar-label">會員登入</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		<div>
+			<!-- offcanvas -->
+			<div class="offcanvas offcanvas-end" tabindex="-1" id="sidebar" aria-labelledby="sidebar-label">
+				<div class="offcanvas-header">
+					<h5 class="offcanvas-title" id="sidebar-label">會員登入</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+				</div>
+				<div class="offcanvas-body">
+					<form action="../api/check.php" method="post">
+						<?php
+						// 透過session，如果有登入成功就直接到後台
+						if (isset($_SESSION['login'])) {
+							to("../back.php");
+						}
+
+						// 登入的功能，這裡是GET傳值的error 帳號或密碼錯誤
+						if (isset($_GET['error'])) {
+							echo "<span style='color:red;'>";
+							echo $_GET['error'];
+							unset($_GET['error']);
+							echo "</span>";
+						}
+						?>
+
+						<div class="container mt-3">
+							<h3></h3>
+							<div class="mb-3 mt-3">
+								<label for="acc">帳號:</label>
+								<input type="text" class="form-control" id="acc" placeholder="Enter acc" name="acc">
+							</div>
+							<div class="mb-3 mt-3">
+								<label for="pw">密碼:</label>
+								<input type="password" class="form-control" id="pw" placeholder="Enter password" name="pw">
+							</div>
+							<div class="form-check mb-3">
+								<label class="form-check-label">
+									<!-- <input class="form-check-input" type="checkbox" name="remember"> 註冊 -->
+									<a href="./front/reg.php">註冊帳號</a>
+								</label>
+							</div>
+							<!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+							<div class="modal-footer">
+								<button type="reset" class="btn btn-secondary">重置</button>
+								<button type="submit" class="btn btn-primary">送出</button>
+							</div>
+					</form>
+				</div>
+
 			</div>
-			<div class="offcanvas-body">
-				<form action="../api/check.php" method="post">
-					<?php
-					// 透過session，如果有登入成功就直接到後台
-					if (isset($_SESSION['login'])) {
-						to("../back.php");
-					}
-
-					// 登入的功能，這裡是GET傳值的error 帳號或密碼錯誤
-					if (isset($_GET['error'])) {
-						echo "<span style='color:red;'>";
-						echo $_GET['error'];
-						unset($_GET['error']);
-						echo "</span>";
-					}
-					?>
-
-					<div class="container mt-3">
-						<h3></h3>
-						<div class="mb-3 mt-3">
-							<label for="acc">帳號:</label>
-							<input type="text" class="form-control" id="acc" placeholder="Enter acc" name="acc">
-						</div>
-						<div class="mb-3 mt-3">
-							<label for="pw">密碼:</label>
-							<input type="password" class="form-control" id="pw" placeholder="Enter password" name="pw">
-						</div>
-						<div class="form-check mb-3">
-							<label class="form-check-label">
-								<!-- <input class="form-check-input" type="checkbox" name="remember"> 註冊 -->
-								<a href="./front/reg.php">註冊帳號</a>
-							</label>
-						</div>
-						<!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-						<div class="modal-footer">
-							<button type="reset" class="btn btn-secondary">重置</button>
-							<button type="submit" class="btn btn-primary">送出</button>
-						</div>
-				</form>
-			</div>
-
-		</div>
 		</div>
 
 		<!-- Button trigger modal -->
@@ -326,9 +330,7 @@
 								</div>
 							</form>
 						</div>
-
 					</div>
-
 				</div>
 			</div>
 		</div>
@@ -428,28 +430,28 @@
 
 		<!-- review area / carousel with words start -->
 		<?php
-			include "./front/reviews.php"
+		include "./front/reviews.php"
 		?>
 		<!-- review area / carousel with words end -->
 
-		<div class="container-fluid">
-			<div class="row">
+
+		<!-- <div class="container-fluid"> -->
+			<!-- <div class="row"> -->
 				<!-- 中間區塊開始 -->
 				<?php
-				$do = $_GET['do'] ?? 'main';
-				$file = "./front/{$do}.php";
-				// 判斷檔案是否存在(路徑包含檔名)，如果是亂打的會引入main.php
-				if (file_exists($file)) {
-					include $file;
-				} else {
-					include "./front/main.php";
-				}
-				?>
+				// $do = $_GET['do'] ?? 'main';
+				// $file = "./front/{$do}.php";
+				// if (file_exists($file)) {
+				// 	include $file;
+				// } else {
+				// 	include "./front/main.php";
+				// }
+				// ?>
 				<!-- 中間區塊結束 -->
-			</div>
+			<!-- </div> -->
+		<!-- </div> -->
 
-		</div>
-
+		<!-- footer start -->
 		<div class="container">
 			<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
 				<div class="col-md-4 d-flex align-items-center">
