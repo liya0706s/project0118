@@ -388,10 +388,12 @@
 						<div class="card border-0 mb-2">
 							<img src="./img/KIBO-120519_9358.jpg" class="card-img-top" alt="...">
 							<div class="card-body text-center py-4">
-								<h4 class="card-title">Start Edition</h4>
-								<p class="lead card-subtitle">eBook download only</p>
-								<p class="display-5 my-4 text-primary fw-bold">$99.9</p>
-								<p class="card-text mx-5 text-muted d-none d-lg-block">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+								<h4 class="card-title">KIBO 程式機器人套件</h4>
+								<p class="lead card-subtitle">適合中大班-低年級</p>
+								<p class="display-5 my-4 text-primary fw-bold">$79.9</p>
+								<p class="card-text mx-5 text-muted d-none d-lg-block">
+								KIBO 是一套針對幼兒及小學生的無屏幕可編程機器人套件，使用實體木製編碼積木，孩子們可以排列並掃描這些積木，來設計他們自己的創意程式。
+								</p>
 								<a href="./front/shop.php" class="btn btn-outline-primary btn-lg mt-3 text-decoration-none">Buy Now</a>
 							</div>
 						</div>
@@ -399,26 +401,31 @@
 
 					<div class="col-8 col-lg-4 col-xl-3">
 						<div class="card border-2 border-primary mb-2">
-							<di class="card-header text-center text-primary">Most Popular</di>
+							<di class="card-header text-center text-primary fw-bolder">Most Popular</di>
 							<img src="./img/multi-page.png" class="card-img-top border border-light" alt="...">
 							<div class="card-body text-center py-4">
-								<h4 class="card-title">Start Edition</h4>
-								<p class="lead card-subtitle">eBook download only</p>
-								<p class="display-5 my-4 text-primary fw-bold">$99.9</p>
-								<p class="card-text mx-5 text-muted d-none d-lg-block">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+								<h4 class="card-title">ScratchJr</h4>
+								<p class="lead card-subtitle">適合中大班-中年級</p>
+								<p class="display-5 my-4 text-primary fw-bold">$89.9</p>
+								<p class="card-text mx-5 text-muted d-none d-lg-block">
+								ScratchJr 是適合兒童的免費程式語言。利用區塊程式讓孩子們創造自己的互動故事和遊戲。截至2023年8月，該應用程式已超過4,500萬用戶，已創建超過1.94億個專案。目前被翻譯成48種語言！
+								</p>
 								<a href="./front/shop.php" class="btn btn-outline-primary btn-lg mt-3 text-decoration-none">Buy Now</a>
 							</div>
 						</div>
 					</div>
 
 					<div class="col-8 col-lg-4 col-xl-3">
-						<div class="card border-0 mb-2" style="">
-							<img src="./img/scratch_microbit.jpg" class="card-img-top border border-light" alt="..." style="height: 13rem;">
+						<div class="card border-0 mb-2">
+							<img src="./img/scratch_microbit.jpg" class="card-img-top border border-light" alt="...">
 							<div class="card-body text-center py-4">
-								<h4 class="card-title">Start Edition</h4>
-								<p class="lead card-subtitle">eBook download only</p>
+								<h4 class="card-title">Scratch & micro:bit</h4>
+								<p class="lead card-subtitle">適合高年級-國中三年級</p>
 								<p class="display-5 my-4 text-primary fw-bold">$99.9</p>
-								<p class="card-text mx-5 text-muted d-none d-lg-block">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+								<p class="card-text mx-5 text-muted d-none d-lg-block">
+								Scratch 是世界上最大的兒童編寫程式語言平台，具有簡單視覺化介面的編碼語言，可增進運算思維和解決問題的能力、創意教育及學習、自我表達和協作。
+								micro:bit 是一塊微型電路板，旨在幫助孩子學習編寫程式和利用科技進行創作。包括LED顯示器、按鈕和運動感應器等功能，可以連接到Scratch結合數位和物理的創意項目。
+								</p>
 								<a href="./front/shop.php" class="btn btn-outline-primary btn-lg mt-3 text-decoration-none">Buy Now</a>
 							</div>
 						</div>
@@ -475,8 +482,9 @@
 						</a>
 					</li>
 					<li class="ms-3">
-						<a class="text-body-secondary" href="https://www.instagram.com">
-							<i class="fa-brands fa-threads fa-xl" style="color: #6c757d;"></i>
+						<a class="text-body-secondary" href="mailto:liya0706s@gmail.com">
+							<!-- <i class="fa-brands fa-threads fa-xl" style="color: #6c757d;"></i> -->
+							<i class="fa-solid fa-envelope fa-xl" style="color: #6c757d;"></i>
 						</a>
 					</li>
 				</ul>
