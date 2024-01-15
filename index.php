@@ -308,7 +308,7 @@
 
 						<div class="container mt-3">
 							<h3></h3>
-							<form action="../api/check.php">
+							<form action="../api/check.php" method="post">
 								<div class="mb-3 mt-3">
 									<label for="acc">帳號:</label>
 									<input type="text" class="form-control" id="acc" placeholder="Enter acc" name="acc">

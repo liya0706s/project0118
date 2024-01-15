@@ -8,6 +8,7 @@ if($Admin->count(['acc'=> $_POST['acc'],'pw'=>$_POST['pw']])==1){
     // 用count所以是表單來的資料，表單來的比較值觀
     to("../back.php");
 }else{
+// to("../index.php?do=login&error=帳號或密碼錯誤");
 to("../index.php?do=login&error=帳號或密碼錯誤");
 }
 ?>
