@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2024-01-15 11:09:18
+-- 產生時間： 2024-01-15 16:30:27
 -- 伺服器版本： 10.4.28-MariaDB
 -- PHP 版本： 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- 資料庫： `db09`
+-- 資料庫： `db_project`
 --
 
 -- --------------------------------------------------------
@@ -42,7 +42,9 @@ INSERT INTO `ad` (`id`, `text`, `sh`) VALUES
 (4, '轉知:法務部辦理「第五屆法規知識王網路闖關競賽辦法', 1),
 (5, '轉知2012年全國青年水墨創作大賽活動', 1),
 (6, '欣榮圖書館101年悅讀達人徵文比賽，歡迎全校師生踴躍投稿參加', 1),
-(7, '轉知:教育是人類升沉的樞紐-2013教師生命成長營', 1);
+(7, '轉知:教育是人類升沉的樞紐-2013教師生命成長營', 1),
+(8, '泰山校園資訊系統', 1),
+(9, 'galaxy', 1);
 
 -- --------------------------------------------------------
 
@@ -62,7 +64,8 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`id`, `acc`, `pw`) VALUES
 (1, 'admin', '1234'),
-(2, 'liya0706', '123456');
+(2, 'liya0706', '123456'),
+(4, 'liya0706s', '4567');
 
 -- --------------------------------------------------------
 
@@ -109,6 +112,29 @@ INSERT INTO `image` (`id`, `img`, `sh`) VALUES
 (11, '01D08.jpg', 1),
 (12, '01D09.jpg', 1),
 (13, '01D10.jpg', 1);
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `mem`
+--
+
+CREATE TABLE `mem` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `acc` text NOT NULL,
+  `pw` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- 傾印資料表的資料 `mem`
+--
+
+INSERT INTO `mem` (`id`, `acc`, `pw`) VALUES
+(1, 'admin', '1234'),
+(2, 'member001', '12345678'),
+(3, 'member002', '123456789'),
+(4, 'member003', '987654321'),
+(5, 'mem004', '1234');
 
 -- --------------------------------------------------------
 
@@ -240,7 +266,7 @@ CREATE TABLE `total` (
 --
 
 INSERT INTO `total` (`id`, `total`) VALUES
-(1, 525);
+(1, 526);
 
 --
 -- 已傾印資料表的索引
@@ -268,6 +294,12 @@ ALTER TABLE `bottom`
 -- 資料表索引 `image`
 --
 ALTER TABLE `image`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- 資料表索引 `mem`
+--
+ALTER TABLE `mem`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -308,13 +340,13 @@ ALTER TABLE `total`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `ad`
 --
 ALTER TABLE `ad`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `bottom`
@@ -327,6 +359,12 @@ ALTER TABLE `bottom`
 --
 ALTER TABLE `image`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- 使用資料表自動遞增(AUTO_INCREMENT) `mem`
+--
+ALTER TABLE `mem`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `menu`
