@@ -170,7 +170,7 @@ if (!isset($_SESSION['login'])) {
               <svg class="bi pe-none me-2" width="16" height="16">
                 <use xlink:href="#table" />
               </svg>
-              學生資料
+              會員帳號
               <!-- 類似管理者帳號，下方可以新增 -->
             </a>
           </li>

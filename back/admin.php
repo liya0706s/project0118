@@ -55,28 +55,24 @@
     <h2 class="mt-5 mb-3 fw-medium">新增會員帳號</h2>
     <hr>
     <form action="./api/add.php" method="post">
-        <table>
-            <tr>
-                <td><label for="accInput" class="form-label">
-                        帳號：</label></td>
-                <td><input class="form-control ms-2" type="text" name="acc" id="accInput"></td>
-            </tr>
-            <tr>
-                <td><label for="pwInput" class="form-label">
-                        密碼：
-                    </label>
-                </td>
-                <td><input type="password" name="pw" id=""></td>
-            </tr>
-            <tr>
-                <td>確認密碼：</td>
-                <td><input type="password" name="pw2" id=""></td>
-            </tr>
-        </table>
-        <div>
+            <table>
+                <tr>
+                    <td><label for="accInput" class="form-label">帳號：</label></td>
+                    <td><input class="form-control ms-2" type="text" name="acc" id="accInput"></td>
+                </tr>
+                <tr>
+                    <td><label for="pwInput" class="form-label">密碼：</label></td>
+                    <td><input class="form-control ms-2" type="password" name="pw" id="pwInput"></td>
+                </tr>
+                <tr>
+                    <td><label for="pw2Input" class="form-label">確認密碼：</label></td>
+                    <td><input class="form-control ms-2" type="password" name="pw2" id="pw2Input"></td>
+                </tr>
+            </table>
+        <div class="mt-3">
             <input type="hidden" name="table" value="<?= $_GET['do']; ?>">
-            <input type="submit" value="新增">
-            <input type="reset" value="重置">
+            <input class="btn btn-secondary me-2" type="submit" value="新增">
+            <input class="btn btn-light" type="reset" value="重置">
         </div>
     </form>
 </div>
