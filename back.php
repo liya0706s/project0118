@@ -166,7 +166,7 @@ if (!isset($_SESSION['login'])) {
           </li>
 
           <li>
-            <a href="?do=admin" class="nav-link text-white">
+            <a href="?do=mem" class="nav-link text-white">
               <svg class="bi pe-none me-2" width="16" height="16">
                 <use xlink:href="#table" />
               </svg>

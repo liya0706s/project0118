@@ -55,9 +55,12 @@
     
 
     <!-- 新增動態文字廣告 -->
-    <h2 class="mt-5 mb-3 fw-medium">新增</h2>
+    <?php 
+    
+    ?>
+    <h2 class="mt-3">新增</h2>
     <hr>
-    <form action="./api/add.php" method="post">
+    <form id="myForm" style="display:block" action="./api/add.php" method="post">
         <table class="">
             <tr>
                 <th><label for="adInput" class="form-label">

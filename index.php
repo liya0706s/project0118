@@ -208,7 +208,7 @@
 									<!-- open sidebar / offcanvas -->
 									<a class="nav-link active" href="#sidebar" data-bs-toggle="offcanvas" role="button" aria-controls="sidebar-label">
 										<i class="fa-solid fa-right-to-bracket"></i>
-										&nbsp;管理登入
+										&nbsp;會員登入
 									</a>
 								<?php
 								}

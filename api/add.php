@@ -13,6 +13,10 @@ switch ($table) {
     case "admin":
         unset($_POST['pw2']);
         break;
+
+    case "mem":
+        unset($_POST['pw2']);
+        break;
 }
 
 // 處理上傳檔案：  
@@ -24,11 +28,11 @@ if (isset($_FILES['img']['tmp_name'])) {
 // 如果table不是admin因為admin沒有顯示這個選項，其他table都有
 // table又是在title的狀況，預設$_POST['sh']這個選項是0不顯示，勾選才是顯示
 // 多個圖片，單選的意思，布林值預設是0，只有一筆被選的是1
-if ($table != 'admin') {
-    $_POST['sh'] = ($table == 'title') ? 0 : 1;
-}
+// if ($table != 'admin') {
+//     $_POST['sh'] = ($table == 'title') ? 0 : 1;
+// }
 
-unset($_POST['table']); 
+unset($_POST['table']);
 
 // php移除變數用unset
 // unset刪除不必要的 $_POST['table'] 變數：

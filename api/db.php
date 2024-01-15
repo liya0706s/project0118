@@ -172,6 +172,8 @@ $News = new DB('news');
 $Admin = new DB('admin');
 $Menu = new DB('menu');
 $Reviews = new DB('reviews');
+$Mem = new DB('mem');
+
 
 
 
