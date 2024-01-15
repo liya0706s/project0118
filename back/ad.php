@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../css/back_style.css">
 <!-- <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;"> -->
 <!-- <p class="t cent botli">動態文字廣告管理</p> -->
 <div class="container-fluid">
@@ -53,7 +54,7 @@
     
 
     <!-- 新增動態文字廣告 -->
-    <h2 class="mt-5 mb-3">新增</h2>
+    <h2 class="mt-5 mb-3 fw-medium">新增</h2>
     <hr>
     <form action="./api/add.php" method="post">
         <table class="">

@@ -75,4 +75,12 @@
       .bd-mode-toggle .dropdown-menu .active .bi {
         display: block !important;
       }
+
+      /* my-code */
+      .rounded-box {
+        border: 2px solid black; /* 設置邊框的顏色和厚度 */
+        border-radius: 10px;     /* 設置邊框的圓角大小 */
+        padding: 10px;           /* 設置內邊距，使文字和邊框之間有一定間隔 */
+        display: inline-block;   /* 使元素的大小適應內容 */
+    }
     
