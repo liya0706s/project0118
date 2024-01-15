@@ -1,12 +1,16 @@
-<div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
-    <p class="t cent botli">管理者帳號管理</p>
+<!-- <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
+    <p class="t cent botli">管理者帳號管理</p> -->
+<link rel="stylesheet" href="../css/back_style.css">
+<div class="container-fluid">
+    <h1 class="text-center mt-3 mb-3">會員帳號管理</h1>
+    <hr>
     <form method="post" action="./api/edit.php">
-        <table width="100%" style="text-align: center">
-            <tbody>
-                <tr class="yel">
-                    <td width="45%">帳號</td>
-                    <td width="45%">密碼</td>
-                    <td width="10%">刪除</td>
+        <table class="table table-striped">
+            <tbody class="text-center">
+                <tr class="fs-5">
+                    <th width="45%">帳號</th>
+                    <th width="45%">密碼</th>
+                    <th width="10%">刪除</th>
                 </tr>
                 <?php
                 // 後台:用foreach迴圈將all()全部的資料倒出來
@@ -18,13 +22,13 @@
                 ?>
                     <tr>
                         <td>
-                            <input type="text" name="acc[]" style="width:90%" value="<?= $row['acc']; ?>">
+                            <input class="form-control" type="text" name="acc[]" style="width:90%" value="<?= $row['acc']; ?>">
                         </td>
                         <td>
-                            <input type="password" name="pw[]" value="<?= $row['pw']; ?>">
+                            <input class="form-control" type="password" name="pw[]" value="<?= $row['pw']; ?>">
                         </td>
                         <td>
-                            <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
+                            <input class="form-check-input" type="checkbox" name="del[]" value="<?= $row['id']; ?>">
                         </td>
                     </tr>
                     <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
@@ -34,15 +38,45 @@
                 ?>
             </tbody>
         </table>
-        <table style="margin-top:40px; width:70%;">
+        <table>
             <tbody>
                 <tr>
                     <input type="hidden" name="table" value="<?= $do; ?>">
-                    <td width="200px"><input type="button" onclick="op('#cover','#cvr','./modal/<?= $do; ?>.php?table=<?= $do; ?>')" value="新增管理者帳號"></td>
-                    <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>
+                    <td class="mt-3">
+                        <input class="btn btn-secondary me-2" type="submit" value="修改確定">
+                        <input class="btn btn-light" type="reset" value="重置">
+                    </td>
                 </tr>
             </tbody>
         </table>
+    </form>
 
+    <!-- 新增區域 -->
+    <h2 class="mt-5 mb-3 fw-medium">新增會員帳號</h2>
+    <hr>
+    <form action="./api/add.php" method="post">
+        <table>
+            <tr>
+                <td><label for="accInput" class="form-label">
+                        帳號：</label></td>
+                <td><input class="form-control ms-2" type="text" name="acc" id="accInput"></td>
+            </tr>
+            <tr>
+                <td><label for="pwInput" class="form-label">
+                        密碼：
+                    </label>
+                </td>
+                <td><input type="password" name="pw" id=""></td>
+            </tr>
+            <tr>
+                <td>確認密碼：</td>
+                <td><input type="password" name="pw2" id=""></td>
+            </tr>
+        </table>
+        <div>
+            <input type="hidden" name="table" value="<?= $_GET['do']; ?>">
+            <input type="submit" value="新增">
+            <input type="reset" value="重置">
+        </div>
     </form>
 </div>

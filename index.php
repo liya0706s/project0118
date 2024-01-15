@@ -13,7 +13,7 @@
 	<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+	<!-- favicon -->
 	<link rel="icon" href="./img/kids_coding-removebg-preview.png" type="image/x-icon">
 	<title>從小學程式，程式從小學</title>
 	<link href="./css/css.css" rel="stylesheet" type="text/css">

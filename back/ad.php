@@ -7,7 +7,7 @@
     <form method="post" action="./api/edit.php">
         <table class="table table-striped">
             <tbody class="text-center">
-                <tr class="yel fs-5">
+                <tr class="fs-5">
                     <th class="col-8">動態文字廣告</th>
                     <th class="col-2">顯示</th>
                     <th class="col-2">刪除</th>
@@ -39,13 +39,14 @@
             </tbody>
         </table>
         <table>
-            <tbody>
+            <tbody class="text-center">
                 <tr class="mt-3">
                     <input type="hidden" name="table" value="<?= $do; ?>">
                     <!-- 傳送table的值帶到 api/edit -->
                     <td>
                         <input class="btn btn-secondary me-2" type="submit" value="修改確定">
-                        <input class="btn btn-light" type="reset" value="重置"></td>
+                        <input class="btn btn-light" type="reset" value="重置">
+                    </td>
                 </tr>
             </tbody>
         </table>

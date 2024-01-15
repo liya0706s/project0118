@@ -15,7 +15,9 @@ if (!isset($_SESSION['login'])) {
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.118.2">
-  <title>卓越科技大學校園資訊系統</title>
+  <!-- favicon -->
+	<link rel="icon" href="./img/kids_coding-removebg-preview.png" type="image/x-icon">
+  <title>從小學程式，程式從小學</title>
   <!-- <link href="./css/css.css" rel="stylesheet" type="text/css"> -->
   <script src="./js/jquery-1.9.1.min.js"></script>
   <script src="./js/js.js"></script>
