@@ -14,7 +14,7 @@
                     <th class="">刪除</th>
                 </tr>
                 <?php
-                $rows = $Reviews->all();
+                $rows = $DB->all();
                 foreach ($rows as $row) {
                 ?>
                     <tr>
@@ -40,17 +40,18 @@
                 ?>
             </tbody>
         </table>
+
         <table>
             <tbody>
                 <tr>
                     <td>
+                        <input type="hidden" name="table" value="<?= $do; ?>">
                         <input type="submit" value="修改確定">
                         <input type="reset" value="重置">
                     </td>
                 </tr>
             </tbody>
         </table>
-
 
     </form>
 </div>

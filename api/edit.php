@@ -1,4 +1,4 @@
-<?php 
+<?php
 include_once "db.php";
 
 // 取得資料表名稱
@@ -29,6 +29,18 @@ foreach ($_POST['id'] as $key => $id) {
             $row['text'] = $_POST['text'][$key];
         }
 
+        // if (isset($row['title'])) {
+        //     $row['title'] = $_POST['title'][$key];
+        // }
+
+        // if (isset($row['subti'])) {
+        //     $row['subti'] = $_POST['subti'][$key];
+        // }
+
+        // if (isset($row['review'])) {
+        //     $row['review'] = $_POST['review'][$key];
+        // }
+
         // 根據資料表的不同，更新相應的欄位
         switch ($table) {
             case "title":
@@ -36,6 +48,10 @@ foreach ($_POST['id'] as $key => $id) {
                 // 檢查 'sh' 的值是否等於當前迭代中的 $id 變量的值
                 break;
             case "admin":
+                $row['acc'] = $_POST['acc'][$key];
+                $row['pw'] = $_POST['pw'][$key];
+                break;
+            case "mem":
                 $row['acc'] = $_POST['acc'][$key];
                 $row['pw'] = $_POST['pw'][$key];
                 break;
