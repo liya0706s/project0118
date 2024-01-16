@@ -129,7 +129,8 @@ if (!isset($_SESSION['login'])) {
     <div class="container-fluid">
       <span class="navbar-brand mb-0 ms-4" style="font-weight:bold">Admin | Dashboard</span>
       <form class="d-flex">
-        <a href="./api/logout.php" class="btn btn-outline-secondary">Sign out</a>
+        <a href="./api/logout.php" class="me-3 btn btn-outline-secondary">Sign out</a>
+        <a href="./index.php" class="btn btn-outline-warning">返回前台</a>
       </form>
     </div>
   </header>

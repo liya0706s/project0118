@@ -240,7 +240,7 @@
 						<?php
 						// 透過session，如果有登入成功就直接到後台
 						if (isset($_SESSION['login'])) {
-							to("../back.php");
+							to("./back.php");
 						}
 
 						// 登入的功能，這裡是GET傳值的error 帳號或密碼錯誤
