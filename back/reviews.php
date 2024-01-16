@@ -20,7 +20,7 @@
                     <tr>
                         <td>
                             <input class="form-control" type="text" name="title[]" value="<?= $row['title']; ?>">
-                            <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
+                            <input type="text" name="id[]" value="<?= $row['id']; ?>">
                             <!-- 隱藏的id才知道是哪一筆對應的title, subtitle和圖片 -->
                         </td>
                         <td><input class="form-control" type="text" name="subti[]" value="<?= $row['subti']; ?>"></td>
@@ -60,6 +60,7 @@
     </form>
 
     <!-- Modal -->
+    <!-- 仿modal/upload.php來的 -->
     <div class="modal fade" id="addPhotoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -79,8 +80,11 @@
                                 </tr>
                             </table>
                             <div>
-                                <input type="hidden" name="table" value="<?= $_GET['table']; ?>">
-                                <input type="hidden" name="id" value="<?= $_GET['id']; ?>">
+                                <!-- 沒有單筆的id? -->
+                                <input type="text" name="table" value="<?= $_GET['do']; ?>">
+                                <input type="text" name="id[]" value="<?= $row['id']; ?>">
+                            
+
                                 <!-- 哪個資料表的圖片 -->
                                 <input type="submit" value="新增">
                                 <input type="reset" value="重置">

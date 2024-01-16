@@ -24,14 +24,21 @@ if (!isset($_SESSION['login'])) {
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sidebars/">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-  <link href=".//css/bootstrap.min.css" rel="stylesheet">
+  <link href="./css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/back_style.css">
+  <link rel="stylesheet" href="./css/css.css">
 
   <!-- Custom styles for this template -->
   <link href="./css/sidebars.css" rel="stylesheet">
 </head>
 
 <body>
+<div id="cover" style="display:none; ">
+		<div id="coverr">
+			<a style="position:absolute; right:3px; top:4px; cursor:pointer; z-index:9999;" onclick="cl(&#39;#cover&#39;)">X</a>
+			<div id="cvr" style="position:absolute; width:99%; height:100%; margin:auto; z-index:9898;"></div>
+		</div>
+	</div>
   <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
     <symbol id="check2" viewBox="0 0 16 16">
       <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
@@ -231,9 +238,10 @@ if (!isset($_SESSION['login'])) {
       </div>
       <div class="b-example-vr"></div>
       
-      <div class="col" style="width:1400px;height:2000px">
+      <div class="col" style="width:1400px;height:1200px">
         <!-- 右下main area start -->
-        <main style="width:1400px;height:2000px">
+        <main>
+      
           <?php
 
           $do = $_GET['do'] ?? 'ad';
@@ -245,6 +253,7 @@ if (!isset($_SESSION['login'])) {
           }
 
           ?>
+        
         </main>
         <!-- 右下main area end -->
       </div>
@@ -255,7 +264,7 @@ if (!isset($_SESSION['login'])) {
 
   <script src="./js/bootstrap.bundle.min.js"></script>
 
-  <script src="sidebars.js"></script>
+  <script src="./js/sidebars.js"></script>
 </body>
 
 </html>
