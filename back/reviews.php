@@ -20,8 +20,8 @@
                     <tr>
                         <td>
                             <input class="form-control" type="text" name="title[]" value="<?= $row['title']; ?>">
-                            <input type="text" name="id[]" value="<?= $row['id']; ?>">
-                            <!-- 隱藏的id才知道是哪一筆對應的title, subtitle和圖片 -->
+                            <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
+                            <!-- 隱藏的id才知道是哪一筆對應的title, subtitle可以修改 -->
                         </td>
                         <td><input class="form-control" type="text" name="subti[]" value="<?= $row['subti']; ?>"></td>
                         <td><input class="form-control" type="text" name="review[]" value="<?= $row['review']; ?>"></td>
@@ -35,8 +35,7 @@
                             <input class="form-check-input" type="checkbox" name="del[]" value="<?= $row['id']; ?>">
                         </td>
                         <td>
-                            <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addPhotoModal">更換圖片</a>
-                            <!-- 用a連結bs-toggle的方法開啟modal -->
+                            <input class="btn btn-warning" type="button" onclick="op('#cover','#cvr','./modal/upload.php?table=<?= $do; ?>&id=<?= $row['id']; ?>')" value="更換圖片">
                         </td>
                     </tr>
                 <?php
@@ -59,43 +58,6 @@
 
     </form>
 
-    <!-- Modal -->
-    <!-- 仿modal/upload.php來的 -->
-    <div class="modal fade" id="addPhotoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title ms-4" id="exampleModalLabel">更新評論圖片</h3>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container mt-3">
-                        <h3></h3>
-                        <form action="../api/update.php" method="post" enctype="multipart/form-data">
-
-                            <table>
-                                <tr>
-                                    <td>評論圖片</td>
-                                    <td><input type="file" name="img" id=""></td>
-                                </tr>
-                            </table>
-                            <div>
-                                <!-- 沒有單筆的id? -->
-                                <input type="text" name="table" value="<?= $_GET['do']; ?>">
-                                <input type="text" name="id[]" value="<?= $row['id']; ?>">
-                            
-
-                                <!-- 哪個資料表的圖片 -->
-                                <input type="submit" value="新增">
-                                <input type="reset" value="重置">
-                            </div>
-
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- 新增評論內容 -->
     <h2 class="mt-3">新增</h2>

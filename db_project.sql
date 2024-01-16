@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： 127.0.0.1
--- 產生時間： 2024-01-15 17:08:31
--- 伺服器版本： 10.4.28-MariaDB
--- PHP 版本： 8.2.4
+-- 產生時間： 2024-01-16 06:43:39
+-- 伺服器版本： 10.4.32-MariaDB
+-- PHP 版本： 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,8 @@ INSERT INTO `ad` (`id`, `text`, `sh`) VALUES
 (6, '欣榮圖書館101年悅讀達人徵文比賽，歡迎全校師生踴躍投稿參加', 0),
 (7, '轉知:教育是人類升沉的樞紐-2013教師生命成長營', 0),
 (8, '泰山校園資訊系統', 1),
-(9, 'galaxy', 1);
+(9, 'galaxy', 1),
+(10, '', 0);
 
 -- --------------------------------------------------------
 
@@ -83,7 +84,7 @@ CREATE TABLE `bottom` (
 --
 
 INSERT INTO `bottom` (`id`, `bottom`) VALUES
-(1, '');
+(1, 'xxxx');
 
 -- --------------------------------------------------------
 
@@ -225,8 +226,8 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`id`, `title`, `subti`, `review`, `img`, `sh`) VALUES
-(1, '程式設計是我最喜歡的課!!!', '因為程式設計課，我學會做自己的小遊戲。', '透過學習程式設計課，我會做自己的遊戲，我喜歡分享給我的同學。', '', 0),
-(2, '我喜歡透過寫程式表達想說的事情', '這會是我想一直學下去的課程!', '寫程式可以做遊戲、寫故事、做卡片和動畫...還可以訓練我邏輯思考。', '', 0);
+(4, '123456', '654321', '121212121', 'slide5.png', 0),
+(5, '123123123', '123123123', '123123123', '03B08.png', 0);
 
 -- --------------------------------------------------------
 
@@ -267,7 +268,7 @@ CREATE TABLE `total` (
 --
 
 INSERT INTO `total` (`id`, `total`) VALUES
-(1, 526);
+(1, 527);
 
 --
 -- 已傾印資料表的索引
@@ -341,13 +342,13 @@ ALTER TABLE `total`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `ad`
 --
 ALTER TABLE `ad`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `bottom`
@@ -383,7 +384,7 @@ ALTER TABLE `mvim`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `titles`
