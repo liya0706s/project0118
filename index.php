@@ -356,16 +356,17 @@
 
 		<!-- bootstrap carousel start -->
 
-		<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+		<div id="carouselExampleAutoplaying" class="carousel slide mb-4" data-bs-ride="carousel">
 			<div class="carousel-inner">
-				<div class="carousel-item active" data-bs-interval="3000">
-					<img src="./img/school.jpg" class="d-block w-100" alt="...">
+				<div class="carousel-item active" data-bs-interval="3000" style="height:864px">
+					<img src="./img/slide-1.jpg" class="d-block w-100" alt="...">
+					<!-- <div style="background-image:url('./img/school.jpg');background-size:cover; "></div> -->
 				</div>
-				<div class="carousel-item" data-bs-interval="3000">
-					<img src="./img/Photo-Joshua_White-jwpictures.com-0311(1).jpg" class="d-block w-100" alt="...">
+				<div class="carousel-item" data-bs-interval="3000" style="height:864px">
+					<img src="./img/slide-2.jpg" class="d-block w-100" alt="...">
 				</div>
-				<div class="carousel-item" data-bs-interval="3000">
-					<img src="./img/maxresdefault.jpg" class="d-block w-100" alt="...">
+				<div class="carousel-item" data-bs-interval="3000" style="height:864px">
+					<img src="./img/scratch-coding-1.jpg" class="d-block w-100" alt="...">
 				</div>
 			</div>
 			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
@@ -380,7 +381,7 @@
 		<!-- bootstrap carousel end -->
 
 		<!-- product plans start -->
-		<section id="product" class="bg-light mt-5">
+		<section id="product" class="bg-light mt-0">
 			<div class="container-fluid">
 				<div class="text-center">
 					<h2>Pricing Plans</h2>
