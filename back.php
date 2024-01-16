@@ -230,9 +230,10 @@ if (!isset($_SESSION['login'])) {
         </ul>
       </div>
       <div class="b-example-vr"></div>
-      <div class="col" style="width:1400px">
+      
+      <div class="col" style="width:1400px;height:2000px">
         <!-- 右下main area start -->
-        <main>
+        <main style="width:1400px;height:2000px">
           <?php
 
           $do = $_GET['do'] ?? 'ad';

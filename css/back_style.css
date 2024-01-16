@@ -83,4 +83,9 @@
         padding: 10px;           /* 設置內邊距，使文字和邊框之間有一定間隔 */
         display: inline-block;   /* 使元素的大小適應內容 */
     }
+
+    body{
+      height: 1200px;
+  }
+    
     

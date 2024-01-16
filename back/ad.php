@@ -65,11 +65,17 @@
             <tr>
                 <th><label for="adInput" class="form-label">
                     動態文字廣告</label></th>
-                <th><input class="form-control ms-2" id="adInput" type="text" name="text"></td>
+                <th><input class="form-control ms-2" id="adInput" type="text" name="text"></th>
             </tr>
         </table>
         <div class="mt-3">
+            <?php
+            if (isset($_GET['do'])){
+            ?>
             <input type="hidden" name="table" value="<?= $_GET['do']; ?>">
+            <?php
+        }
+        ?>
             <input class="btn btn-secondary me-2" type="submit" value="新增">
             <input class="btn btn-light" type="reset" value="重置">
         </div>

@@ -163,6 +163,9 @@
 								</ul>
 							</li> -->
 
+							<!-- <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal2" class="btn btn-primary" ></a> -->
+							<!-- 以上a link 可以toggle modal -->
+
 							<?php
 							$mainMenus = $Menu->all(['sh' => 1, 'menu_id' => 0]);
 							foreach ($mainMenus as $main) {
@@ -176,6 +179,7 @@
 								echo "<a class='nav-link";
 								echo $hasSub ? " dropdown-toggle' href='#' id='navbarDropdown{$main['id']}' role='button' data-bs-toggle='dropdown' aria-expanded='false'" : "' data-bs-toggle='modal' data-bs-target='#exampleModal' href='{$main['href']}'";
 								echo ">{$main['text']}</a>";
+					
 
 								if ($hasSub) {
 									echo "<ul class='dropdown-menu' aria-labelledby='navbarDropdown{$main['id']}'>";
