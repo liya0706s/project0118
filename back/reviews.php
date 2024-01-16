@@ -70,39 +70,22 @@
     <form id="myForm" style="display:block" action="./api/add.php" method="post" enctype="multipart/form-data">
         <table class="table table-striped">
             <tr>
-                <th><label for="">標題</label></th>
-                <th><label for="">次標題</label></th>
-                <th><label for="">敘述</label></th>
-                <th><label for="">圖片</label></th>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            </tr>
-            <tr>
-                <th><label for="adInput" class="form-label">標題</label></th>
-                <th><input class="form-control ms-2" id="adInput" type="text" name="title"></th>
-            </tr>
-            <tr>
+                <th><label class="form-label">標題</label></th>
                 <th><label class="form-label">次標題</label></th>
-                <th><input class="form-control" type="text" name="subti"></th>
-            </tr>
-            <tr>
                 <th><label class="form-label">敘述</label></th>
-                <th><input class="form-control" type="text" name="review"></th>
-            </tr>
-            <tr>
                 <th><label class="form-label">圖片</label></th>
-                <th><input class="form-control" type="file" name="img"></th>
+            <tr>
+                <td><input class="form-control" type="text" name="title"></td>
+                <td><input class="form-control" type="text" name="subti"></td>
+                <td><input class="form-control" type="text" name="review"></td>
+                <td><input class="form-control" type="file" name="img"></td>
             </tr>
         </table>
-        <table>
-            <tr class="d-flex">
+        <table class="mx-auto">
+            <tr>
                 <input type="hidden" name="table" value="<?= $_GET['do']; ?>">
-                <input class="form-control btn btn-warning me-2" type="submit" value="新增">
-                <input class="form-control btn btn-light" type="reset" value="重置">
+                <td><input class="form-control btn btn-warning me-2" type="submit" value="新增"></td>
+                <td><input class="form-control btn btn-light" type="reset" value="重置"></td> 
             </tr>
         </table>
     </form>
