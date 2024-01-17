@@ -1,9 +1,14 @@
+<style>
+    body {
+        height: 100% !important;
+    }
+</style>
 <link rel="stylesheet" href="../css/back_style.css">
 <div class="container-fluid">
     <h1 class="text-center mt-3 mb-3">課程評論管理</h1>
     <hr>
     <form action="./api/edit.php" method="post" enctype="multipart/form-data">
-        <table class="table table-striped">
+        <table class="table table-striped ">
             <tbody class="text-center">
                 <tr class="fs-5">
                     <th>標題</th>
@@ -19,14 +24,14 @@
                 ?>
                     <tr>
                         <td>
-                            <input class="form-control" type="text" name="title[]" value="<?= $row['title']; ?>">
+                            <input class="form-control" type="textarea" name="title[]" value="<?= $row['title']; ?>">
                             <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
                             <!-- 隱藏的id才知道是哪一筆對應的title, subtitle可以修改 -->
                         </td>
-                        <td><input class="form-control" type="text" name="subti[]" value="<?= $row['subti']; ?>"></td>
-                        <td><input class="form-control" type="text" name="review[]" value="<?= $row['review']; ?>"></td>
+                        <td><input class="form-control" type="textarea" name="subti[]" value="<?= $row['subti']; ?>"></td>
+                        <td><input class="form-control" type="textarea" name="review[]" value="<?= $row['review']; ?>"></td>
                         <td>
-                            <img src="./img/<?= $row['img']; ?>" style="width:150px;height:102px">
+                            <img src="./img/<?= $row['img']; ?>" style="width:180px;height:120px">
                         </td>
                         <td>
                             <input class="form-check-input" type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
@@ -63,29 +68,26 @@
     <h2 class="mt-3">新增</h2>
     <hr>
     <form id="myForm" style="display:block" action="./api/add.php" method="post" enctype="multipart/form-data">
-        <table class="">
+        <table class="table table-striped">
             <tr>
-                <th><label for="adInput" class="form-label">標題</label></th>
-                <th><input class="form-control ms-2" id="adInput" type="text" name="title"></th>
-            </tr>
+                <th><label class="form-label">標題</label></th>
+                <th><label class="form-label">次標題</label></th>
+                <th><label class="form-label">敘述</label></th>
+                <th><label class="form-label">圖片</label></th>
             <tr>
-                <th><label for="">次標題</label></th>
-                <th><input type="text" name="subti"></th>
-            </tr>
-            <tr>
-                <th><label for="">敘述</label></th>
-                <th><input type="text" name="review"></th>
-            </tr>
-            <tr>
-                <th><label for="">圖片</label></th>
-                <th><input type="file" name="img"></th>
+                <td><input class="form-control" type="text" name="title"></td>
+                <td><input class="form-control" type="text" name="subti"></td>
+                <td><input class="form-control" type="text" name="review"></td>
+                <td><input class="form-control" type="file" name="img"></td>
             </tr>
         </table>
-        <div class="mt-3">
-            <input type="hidden" name="table" value="<?= $_GET['do']; ?>">
-            <input class="btn btn-secondary me-2" type="submit" value="新增">
-            <input class="btn btn-light" type="reset" value="重置">
-        </div>
+        <table class="mx-auto">
+            <tr>
+                <input type="hidden" name="table" value="<?= $_GET['do']; ?>">
+                <td><input class="form-control btn btn-warning me-2" type="submit" value="新增"></td>
+                <td><input class="form-control btn btn-light" type="reset" value="重置"></td> 
+            </tr>
+        </table>
     </form>
 
 </div>

@@ -32,7 +32,7 @@ if (!isset($_SESSION['login'])) {
   <link href="./css/sidebars.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="w-100">
   <div id="cover" style="display:none;">
     <div id="coverr">
       <a style="position:absolute; right:3px; top:4px; cursor:pointer; z-index:9999;" onclick="cl(&#39;#cover&#39;)">X</a>
@@ -138,7 +138,7 @@ if (!isset($_SESSION['login'])) {
 
   <!-- sidebar start -->
   <div class="container-fluid d-md-flex flex-nowrap offcanvas-body overflow-y-auto">
-    <div class="row">
+    <div class="row w-100 h-100">
       <div class="col-3 nav d-flex flex-column flex-shrink-0 p-3 text-bg-dark " style="width: 280px;">
 
         <a href="./back.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -252,9 +252,9 @@ if (!isset($_SESSION['login'])) {
       </div>
       <div class="b-example-vr"></div>
 
-      <div class="col" style="width:1400px;height:1200px">
+      <div class="col w-100 h-100">
         <!-- 右下main area start -->
-        <main>
+        <main class="w-100 h-100" style="overflow: auto;">
 
           <?php
 
