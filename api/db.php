@@ -3,7 +3,7 @@ date_default_timezone_set("Asia/Taipei");
 session_start();
 class DB
 {
-    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=db_project";
+    protected $dsn = "mysql:host=localhost;charset=utf8;dbname=s1120409";
     // db+抽到的崗位號碼
     // protected $dsn = "mysql:host=localhost;charset=utf8;dbname=bquiz"; 
     // dbname=資料庫名稱

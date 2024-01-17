@@ -24,12 +24,12 @@
                 ?>
                     <tr>
                         <td>
-                            <input class="form-control" type="textarea" name="title[]" value="<?= $row['title']; ?>">
+                            <textarea class="form-control" name="title[]" style="height:70px;"><?= $row['title']; ?></textarea>
                             <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
                             <!-- 隱藏的id才知道是哪一筆對應的title, subtitle可以修改 -->
                         </td>
-                        <td><input class="form-control" type="textarea" name="subti[]" value="<?= $row['subti']; ?>"></td>
-                        <td><input class="form-control" type="textarea" name="review[]" value="<?= $row['review']; ?>"></td>
+                        <td><textarea class="form-control" name="subti[]" style="height:100px;"><?= $row['subti']; ?></textarea></td>
+                        <td><textarea class="form-control" name="review[]" style="height:165px;"><?= $row['review']; ?></textarea></td>
                         <td>
                             <img src="./img/<?= $row['img']; ?>" style="width:180px;height:120px">
                         </td>
@@ -75,9 +75,9 @@
                 <th><label class="form-label">敘述</label></th>
                 <th><label class="form-label">圖片</label></th>
             <tr>
-                <td><input class="form-control" type="text" name="title"></td>
-                <td><input class="form-control" type="text" name="subti"></td>
-                <td><input class="form-control" type="text" name="review"></td>
+                <td><textarea class="form-control" type="text" name="title"></textarea></td>
+                <td><textarea class="form-control" type="text" name="subti"></textarea></td>
+                <td><textarea class="form-control" type="text" name="review"></textarea></td>
                 <td><input class="form-control" type="file" name="img"></td>
             </tr>
         </table>
