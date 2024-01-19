@@ -85,7 +85,7 @@
             <tr>
                 <input type="hidden" name="table" value="<?= $_GET['do']; ?>">
                 <td><input class="form-control btn btn-warning me-2" type="submit" value="新增"></td>
-                <td><input class="form-control btn btn-light" type="reset" value="重置"></td> 
+                <td><input class="form-control btn btn-light" type="reset" value="重置"></td>
             </tr>
         </table>
     </form>
