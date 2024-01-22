@@ -31,7 +31,7 @@
                         <td><textarea class="form-control" name="subti[]" style="height:100px;"><?= $row['subti']; ?></textarea></td>
                         <td><textarea class="form-control" name="review[]" style="height:165px;"><?= $row['review']; ?></textarea></td>
                         <td>
-                            <img src="./img/<?= $row['img']; ?>" style="width:180px;height:120px">
+                            <img class="rounded mx-auto d-block" src="./img/<?= $row['img']; ?>" style="width:180px;height:120px">
                         </td>
                         <td>
                             <input class="form-check-input" type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>

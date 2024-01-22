@@ -5,10 +5,10 @@
         <table class="table table-striped">
             <tbody class="text-center">
                 <tr class="fs-5">
-                    <td width="70%">校園映像資料圖片</td>
-                    <td width="10%">顯示</td>
-                    <td width="10%">刪除</td>
-                    <td></td>
+                    <th>校園映像資料圖片</th>
+                    <th>顯示</th>
+                    <th>刪除</th>
+                    <th></th>
                 </tr>
                 <?php
                 // 後台:用foreach迴圈將all()全部的資料倒出來
@@ -25,18 +25,18 @@
                 ?>
                     <tr>
                         <td>
-                            <img src="./img/<?= $row['img']; ?>" style="width:100px;height:68px">
+                            <img class="rounded mx-auto d-block" src="./img/<?= $row['img']; ?>" style="width:100px;height:68px">
                         </td>
-                            <input type="hidden" name="id[]" value="<?=$row['id'];?>">
+                            <input class="form-check-input" type="hidden" name="id[]" value="<?=$row['id'];?>">
                             <!-- 知道是哪一筆id才可以修改 -->
                         <td>
-                            <input type="checkbox" name="sh[]" value="<?=$row['id'];?>"<?=($row['sh']==1)?'checked':'';?>>
+                            <input class="form-check-input" type="checkbox" name="sh[]" value="<?=$row['id'];?>"<?=($row['sh']==1)?'checked':'';?>>
                         </td>
                         <td>
-                            <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
+                            <input class="form-check-input" type="checkbox" name="del[]" value="<?= $row['id']; ?>">
                         </td>
                         <td>
-                            <input type="button" onclick="op('#cover','#cvr','./modal/upload.php?table=<?=$do;?>&id=<?=$row['id'];?>')" value="更換圖片">
+                            <input class="btn btn-warning" type="button" onclick="op('#cover','#cvr','./modal/upload.php?table=<?=$do;?>&id=<?=$row['id'];?>')" value="更換圖片">
                             <!-- id為了撈資料 -->
                         </td>
                     </tr>

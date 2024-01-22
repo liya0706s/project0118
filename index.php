@@ -270,7 +270,7 @@
 							</div>
 							<!-- <button type="submit" class="btn btn-primary">Submit</button> -->
 							<div class="modal-footer">
-								<button type="reset" class="btn btn-secondary">重置</button>
+								<button type="reset" class="btn btn-secondary me-2">重置</button>
 								<button type="submit" class="btn btn-primary">送出</button>
 							</div>
 					</form>
