@@ -34,7 +34,7 @@ foreach ($rows as $row) {
 					<title>Placeholder</title>
 					<rect width="100%" height="100%" fill="var(--bs-secondary-bg)" /><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
 				</svg> -->
-				<img src="./img/<?= $row['img']; ?>" style="width:500px;height:500px" alt="">
+				<img src="./img/<?= $row['img']; ?>" alt="">
 				<!-- <img src="https://picsum.photos/id/119/500/500" alt=""> -->
 			</div>
 		</div>
@@ -53,7 +53,7 @@ foreach ($rows as $row) {
 		// break;
 	?>
 		<div class="row featurette">
-			<div class="col-md-7 order-xl-2">
+			<div class="col-lg-7 col-md-6 order-xl-2 order-lg-2 order-md-2">
 				<!-- title -->
 				<h2 class="featurette-heading lh-1">
 					<?= $row['title']; ?>
@@ -71,13 +71,13 @@ foreach ($rows as $row) {
 					<!-- Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place. -->
 				</p>
 			</div>
-			<div class="col-md-5 order-xl-1">
+			<div class="col-lg-5 col-md-6 order-xl-1 order-lg-1 order-md-1">
 				<!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
 					<title>Placeholder</title>
 					<rect width="100%" height="100%" fill="var(--bs-secondary-bg)" /><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text>
 				</svg> -->
 				<!-- <img src="https://picsum.photos/id/109/500/500" alt=""> -->
-				<img src="./img/<?= $row['img']; ?>" style="width:500px;height:500px" alt="">
+				<img src="./img/<?= $row['img']; ?>" alt="">
 			</div>
 		</div>
 

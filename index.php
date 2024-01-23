@@ -12,11 +12,8 @@
 	<link href="./css/css.css" rel="stylesheet" type="text/css">
 	<script src="./js/jquery-1.9.1.min.js"></script>
 	<script src="./js/js.js"></script>
-	<!-- font-awesome cdn css -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<!-- bootstrap 5.3.2 cdn js -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-	<!-- bs css  -->
 	<link href="./css/bootstrap.min.css" rel="stylesheet">
 
 	<style>
@@ -103,7 +100,7 @@
 			vertical-align: middle;
 		}
 	</style>
-	
+
 </head>
 
 <body>
@@ -210,11 +207,11 @@
 							<h3></h3>
 							<div class="mb-3 mt-3">
 								<label for="acc">帳號:</label>
-								<input type="text" class="form-control" id="acc" placeholder="Enter acc" name="acc">
+								<input type="text" class="form-control" id="acc2" placeholder="Enter acc" name="acc">
 							</div>
 							<div class="mb-3 mt-3">
 								<label for="pw">密碼:</label>
-								<input type="password" class="form-control" id="pw" placeholder="Enter password" name="pw">
+								<input type="password" class="form-control" id="pw2" placeholder="Enter password" name="pw">
 							</div>
 							<div class="form-check mb-3">
 								<label class="form-check-label">
@@ -245,9 +242,9 @@
 					<div class="modal-body">
 						<!-- ... -->
 						<?php
-						// 透過session，如果有登入成功就直接到後台
+						// 透過session，如果有登入成功就直接到前台
 						if (isset($_SESSION['login'])) {
-							to("./back.php");
+							to("./index.php");
 						}
 
 						// 登入的功能，這裡是GET傳值的error 帳號或密碼錯誤
@@ -261,47 +258,91 @@
 
 						<div class="container mt-3">
 							<h3></h3>
-							<form action="./api/check.php" method="post">
-								<div class="mb-3 mt-3">
-									<label for="acc">帳號:</label>
-									<input type="text" class="form-control" id="acc" placeholder="Enter acc" name="acc">
-								</div>
-								<div class="mb-3 mt-3">
-									<label for="pw">密碼:</label>
-									<input type="password" class="form-control" id="pw" placeholder="Enter password" name="pw">
-								</div>
-								<div class="form-check mb-3">
-									<label class="form-check-label">
-										<!-- <input class="form-check-input" type="checkbox" name="remember"> 註冊 -->
-										<a href="./front/reg.php">註冊帳號</a>
-									</label>
-								</div>
-								<!-- <button type="submit" class="btn btn-primary">Submit</button> -->
-								<div class="modal-footer">
-									<button type="reset" class="btn btn-secondary">重置</button>
-									<button type="submit" class="btn btn-primary">送出</button>
-								</div>
-							</form>
+							<!-- <form action="./api/check.php" method="post"> -->
+							<div class="mb-3 mt-3">
+								<label for="acc">帳號:</label>
+								<input type="text" class="form-control" id="acc" placeholder="Enter acc" name="acc">
+							</div>
+							<div class="mb-3 mt-3">
+								<label for="pw">密碼:</label>
+								<input type="password" class="form-control" id="pw" placeholder="Enter password" name="pw">
+							</div>
+							<div class="mb-3 mt-3">
+								<label for="ans">驗證碼:</label>
+								<?php
+								// 兩位數的亂數區間
+								$a = rand(10, 99);
+								$b = rand(10, 99);
+								// SESSION比一般變數長久存在伺服器端，客戶看不到
+								$_SESSION['ans'] = $a + $b;
+								echo $a . " + " . $b . " =";
+								?>
+								<input type="text" name="ans" id="ans">
+							</div>
+							<div class="form-check mb-3">
+								<label class="form-check-label">
+									<!-- <input class="form-check-input" type="checkbox" name="remember"> 註冊 -->
+									<a href="./front/reg.php">註冊帳號</a>
+								</label>
+							</div>
+							<!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+							<div class="modal-footer">
+								<button type="reset" class="btn btn-secondary">重置</button>
+								<button onclick="login('mem')" class="btn btn-primary">確認</button>
+							</div>
+							<!-- </form> -->
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
+		<script>
+			// 定義一個名為 login 的函數，它接受一個參數：table (mem和admin)
+			function login(table) {
+				// 發送一個 GET 請求到 './api/chk_ans.php' 確認驗證碼
+				$.get('./api/chk_ans.php', {
+					ans: $("#ans").val()
+				}, (chk) => {
+					// 將 ans 參數設置為 id 為 'ans' 的元素的值
+					// chk 是從 chk_ans.php 返回的響應
+					if (parseInt(chk) == 0) {
+						alert("驗證碼錯誤，請重新輸入")
+					} else {
+						// 如果驗證碼正確，發送一個 POST 請求到 './api/chk_pw.php'
+						$.post("./api/chk_pw.php", {
+								table, // 傳送 table 參數 mem
+								acc: $("#acc").val(), // 傳送 acc 參數，其值為 id 為 'acc' 的元素的值
+								pw: $("#pw").val()
+							}, // 傳送 pw 參數，其值為 id 為 'pw' 的元素的值
+							(res) => { // res 是從 chk_pw.php 返回的響應
+								if (parseInt(res) == 0) {
+									// 如果 res 轉換為整數後等於 0，顯示錯誤訊息
+									alert("帳號或密碼錯誤，請重新輸入")
+								} else {
+									// 如果帳號和密碼正確，則重定向到 'index.php'
+									location.href = 'index.php';
+								}
+							})
+					}
+				})
+			}
+		</script>
+
 		<!-- alert 文字廣告 原本的marquee  -->
-		<div style="padding-top:58px" >
-		<div class="alert alert-warning alert-dismissible fade show" role="alert">
-			<marquee class="text-center">
-				<?php
-				$ads = $Ad->all(['sh' => 1]);
-				foreach ($ads as $ad) {
-					echo $ad['text'];
-					echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
-				}
-				?>
-			</marquee>
-			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-		</div>
+		<div style="padding-top:58px">
+			<div class="alert alert-warning alert-dismissible fade show" role="alert">
+				<marquee class="text-center">
+					<?php
+					$ads = $Ad->all(['sh' => 1]);
+					foreach ($ads as $ad) {
+						echo $ad['text'];
+						echo '&nbsp;&nbsp;|&nbsp;&nbsp;';
+					}
+					?>
+				</marquee>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
 		</div>
 
 		<!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
