@@ -24,9 +24,7 @@
 	<!-- bootstrap 5.3.2 cdn js -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
-	<!-- carousel script and link  -->
-	<script src="./js/color-modes.js"></script>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+	<!-- bs css  -->
 	<link href="./css/bootstrap.min.css" rel="stylesheet">
 
 	<style>
@@ -113,8 +111,7 @@
 			vertical-align: middle;
 		}
 	</style>
-	<!-- Custom styles for this carousel template -->
-	<link href="./css/carousel.css" rel="stylesheet">
+	
 </head>
 
 <body>
@@ -305,8 +302,9 @@
 		</div>
 
 		<!-- alert 文字廣告 原本的marquee  -->
-		<div class="alert alert-warning alert-dismissible fade show" role="alert" style="margin-top: 0; height:52px; margin-bottom:0">
-			<marquee>
+		<div style="padding-top:58px" >
+		<div class="alert alert-warning alert-dismissible fade show" role="alert">
+			<marquee class="text-center">
 				<?php
 				$ads = $Ad->all(['sh' => 1]);
 				foreach ($ads as $ad) {
@@ -317,11 +315,17 @@
 			</marquee>
 			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 		</div>
+		</div>
+
+		<!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
+			<strong>Holy guacamole!</strong> You should check in on some of those fields below.
+			<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+		</div> -->
 		<!-- alert 文字廣告結束 -->
 
 		<!-- bootstrap carousel start -->
 		<div class="container-fluid">
-			<div id="carouselExampleAutoplaying" class="carousel slide mb-4" data-bs-ride="carousel">
+			<div id="carouselExampleAutoplaying" class="carousel slide mb-4 mt-0" data-bs-ride="carousel">
 				<div class="carousel-inner">
 					<div class="carousel-item active" data-bs-interval="3000">
 						<img src="./img/slide-1.jpg" class="d-block w-100" alt="...">
