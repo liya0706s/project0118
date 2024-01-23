@@ -1,16 +1,9 @@
-<?php include_once "./api/db.php";
-
-?>
+<?php include_once "./api/db.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> -->
-<!-- saved from url=(0040)http://127.0.0.1/test/exercise/collage/? -->
-<!-- <html xmlns="http://www.w3.org/1999/xhtml"> -->
-
 <head>
-	<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- favicon -->
@@ -23,7 +16,6 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<!-- bootstrap 5.3.2 cdn js -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
 	<!-- bs css  -->
 	<link href="./css/bootstrap.min.css" rel="stylesheet">
 
