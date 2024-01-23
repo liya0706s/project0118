@@ -130,9 +130,9 @@
 				</button>
 				<div class="collapse navbar-collapse row" id="navbarNav">
 					<div class="col-9">
-						<ul class="navbar-nav">
+						<ul class="navbar-nav d-flex flex-row">
 
-							<li class="nav-item">
+							<li class="nav-item me-2">
 								<a class="nav-link active" href="#">
 									<i class="fa-solid fa-code"></i>
 									<!-- <img src="./img/kids_coding-removebg-preview.png" style="width:25px; height:25px"> -->
@@ -140,27 +140,27 @@
 							</li>
 
 							<!-- 靜態導航項目 -->
-							<li class="nav-item">
+							<li class="nav-item me-2">
 								<a class="nav-link" aria-current="page" href="#">Home</a>
 							</li>
 
-							<li class="nav-item">
+							<li class="nav-item me-2">
 								<a class="nav-link" aria-current="page" href="#product">Product</a>
 							</li>
 
-							<li class="nav-item">
+							<li class="nav-item me-2">
 								<a class="nav-link" aria-current="page" href="#reviews">Reviews</a>
 							</li>
 
-							<li class="nav-item">
+							<li class="nav-item me-2">
 								<a href="index.php?do=login" class="nav-link" data-bs-toggle='modal' data-bs-target='#exampleModal'>會員登入</a>
 							</li>
 
 						</ul>
 					</div>
 
-					<div class="col-3 ">
-						<ul class="navbar-nav d-flex justify-content-end">
+					<div class="col-3">
+						<ul class="navbar-nav d-flex flex-row justify-content-end">
 							<!-- 判斷有沒有登入的狀態，顯示不同的連結 -->
 							<li class="nav-item">
 								<?php
@@ -183,7 +183,7 @@
 							</li>
 							<li class="item mt-2">
 								<i class="fa-solid fa-chart-simple me-1"></i>
-								今日人數 <?= $Total->find(1)['total']; ?>
+								今日 <?= $Total->find(1)['total']; ?> 人
 							</li>
 						</ul>
 

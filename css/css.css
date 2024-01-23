@@ -243,5 +243,23 @@ a:hover {
 		overflow: hidden !important;
 	}
 
+}
 
+/* 調整讓navbar在小畫面時，不要覆蓋住carousel */
+
+/* 確保 navbar 的 z-index 較低 */
+.navbar {
+    z-index: 1;
+}
+
+/* 為 carousel 添加適當的上方邊距 */
+#carouselExampleAutoplaying {
+    margin-top: 56px; /* 根據您的 navbar 高度進行調整 */
+}
+
+/* 響應式設計：在小螢幕尺寸下調整上方邊距 */
+@media (max-width: 768px) {
+    #carouselExampleAutoplaying {
+        margin-top: 70px; /* 可能需要更大的邊距 */
+    }
 }
