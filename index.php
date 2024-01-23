@@ -124,11 +124,10 @@
 				<!-- <a class="navbar-brand" href="index.php">
 					<i class="fa-solid fa-school"></i>
 				</a> -->
-					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<div class="collapse navbar-collapse row" id="navbarNav">
-					</div>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse row" id="navbarNav">
 					<div class="col-9">
 						<ul class="navbar-nav">
 
@@ -151,7 +150,7 @@
 							<li class="nav-item">
 								<a class="nav-link" aria-current="page" href="#reviews">Reviews</a>
 							</li>
-							
+
 							<li class="nav-item">
 								<a href="index.php?do=login" class="nav-link" data-bs-toggle='modal' data-bs-target='#exampleModal'>會員登入</a>
 							</li>
@@ -159,23 +158,23 @@
 						</ul>
 					</div>
 
-					<div class="col-3 d-flex">
-						<ul class="navbar-nav ml-auto">
+					<div class="col-3 ">
+						<ul class="navbar-nav d-flex justify-content-end">
 							<!-- 判斷有沒有登入的狀態，顯示不同的連結 -->
-							<li class="item">
+							<li class="nav-item">
 								<?php
 								if (isset($_SESSION['login'])) {
 								?>
-									<a class="nav-link active me-5" href="back.php">
+									<a class="nav-link active me-5" aria-current="page" href="back.php">
 										<i class="fa-solid fa-list-check"></i>&nbsp;返回管理
 									</a>
 								<?php
 								} else {
 								?>
 									<!-- open sidebar / offcanvas -->
-									<a class="nav-link active" href="#sidebar" data-bs-toggle="offcanvas" role="button" aria-controls="sidebar-label">
+									<a class="nav-link active" aria-current="page" href="#sidebar" data-bs-toggle="offcanvas" role="button" aria-controls="sidebar-label">
 										<i class="fa-solid fa-right-to-bracket"></i>
-										&nbsp;會員登入
+										&nbsp;管理員登入
 									</a>
 								<?php
 								}
@@ -188,6 +187,8 @@
 						</ul>
 
 					</div>
+				</div>
+
 			</div>
 		</nav>
 
@@ -195,7 +196,7 @@
 			<!-- offcanvas -->
 			<div class="offcanvas offcanvas-end" tabindex="-1" id="sidebar" aria-labelledby="sidebar-label">
 				<div class="offcanvas-header">
-					<h5 class="offcanvas-title" id="sidebar-label">會員登入</h5>
+					<h5 class="offcanvas-title" id="sidebar-label">管理員登入</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 				</div>
 				<div class="offcanvas-body">
@@ -253,7 +254,7 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h3 class="modal-title ms-4" id="exampleModalLabel">登入</h3>
+						<h3 class="modal-title ms-4" id="exampleModalLabel">會員登入</h3>
 						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
 					<div class="modal-body">
@@ -360,7 +361,7 @@
 								<p class="lead card-subtitle">適合中大班-低年級</p>
 								<p class="display-5 my-4 text-primary fw-bold">$79.9</p>
 								<p class="card-text mx-5 text-muted d-none d-lg-block">
-								KIBO 是一套針對幼兒及小學生的無屏幕可編程機器人套件，使用實體木製編碼積木，孩子們可以排列並掃描這些積木，來設計他們自己的創意程式。
+									KIBO 是一套針對幼兒及小學生的無屏幕可編程機器人套件，使用實體木製編碼積木，孩子們可以排列並掃描這些積木，來設計他們自己的創意程式。
 								</p>
 								<a href="./front/shop.php" class="btn btn-outline-primary btn-lg mt-3 text-decoration-none">Buy Now</a>
 							</div>
@@ -376,7 +377,7 @@
 								<p class="lead card-subtitle">適合中大班-中年級</p>
 								<p class="display-5 my-4 text-primary fw-bold">$89.9</p>
 								<p class="card-text mx-5 text-muted d-none d-lg-block">
-								ScratchJr 是適合兒童的免費程式語言。利用區塊程式讓孩子們創造自己的互動故事和遊戲。截至2023年8月，該應用程式已超過4,500萬用戶，已創建超過1.94億個專案。目前被翻譯成48種語言！
+									ScratchJr 是適合兒童的免費程式語言。利用區塊程式讓孩子們創造自己的互動故事和遊戲。截至2023年8月，該應用程式已超過4,500萬用戶，已創建超過1.94億個專案。目前被翻譯成48種語言！
 								</p>
 								<a href="./front/shop.php" class="btn btn-outline-primary btn-lg mt-3 text-decoration-none">Buy Now</a>
 							</div>
@@ -391,8 +392,8 @@
 								<p class="lead card-subtitle">適合高年級-國中三年級</p>
 								<p class="display-5 my-4 text-primary fw-bold">$99.9</p>
 								<p class="card-text mx-5 text-muted d-none d-lg-block">
-								Scratch 是世界上最大的兒童編寫程式語言平台，具有簡單視覺化介面的編碼語言，可增進運算思維和解決問題的能力、創意教育及學習、自我表達和協作。
-								micro:bit 是一塊微型電路板，旨在幫助孩子學習編寫程式和利用科技進行創作。包括LED顯示器、按鈕和運動感應器等功能，可以連接到Scratch結合數位和物理的創意項目。
+									Scratch 是世界上最大的兒童編寫程式語言平台，具有簡單視覺化介面的編碼語言，可增進運算思維和解決問題的能力、創意教育及學習、自我表達和協作。
+									micro:bit 是一塊微型電路板，旨在幫助孩子學習編寫程式和利用科技進行創作。包括LED顯示器、按鈕和運動感應器等功能，可以連接到Scratch結合數位和物理的創意項目。
 								</p>
 								<a href="./front/shop.php" class="btn btn-outline-primary btn-lg mt-3 text-decoration-none">Buy Now</a>
 							</div>
@@ -411,19 +412,20 @@
 
 
 		<!-- <div class="container-fluid"> -->
-			<!-- <div class="row"> -->
-				<!-- 中間區塊開始 -->
-				<?php
-				// $do = $_GET['do'] ?? 'main';
-				// $file = "./front/{$do}.php";
-				// if (file_exists($file)) {
-				// 	include $file;
-				// } else {
-				// 	include "./front/main.php";
-				// }
-				// ?>
-				<!-- 中間區塊結束 -->
-			<!-- </div> -->
+		<!-- <div class="row"> -->
+		<!-- 中間區塊開始 -->
+		<?php
+		// $do = $_GET['do'] ?? 'main';
+		// $file = "./front/{$do}.php";
+		// if (file_exists($file)) {
+		// 	include $file;
+		// } else {
+		// 	include "./front/main.php";
+		// }
+		// 
+		?>
+		<!-- 中間區塊結束 -->
+		<!-- </div> -->
 		<!-- </div> -->
 
 		<!-- footer start -->
