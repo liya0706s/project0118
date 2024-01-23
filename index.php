@@ -119,7 +119,8 @@
 
 <body>
 	<main>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+		<!-- navbar -->
+		<div class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 			<div class="container-fluid">
 				<!-- <a class="navbar-brand" href="index.php">
 					<i class="fa-solid fa-school"></i>
@@ -174,7 +175,7 @@
 									<!-- open sidebar / offcanvas -->
 									<a class="nav-link active" aria-current="page" href="#sidebar" data-bs-toggle="offcanvas" role="button" aria-controls="sidebar-label">
 										<i class="fa-solid fa-right-to-bracket"></i>
-										&nbsp;管理員登入
+										&nbsp;管理登入
 									</a>
 								<?php
 								}
@@ -190,7 +191,7 @@
 				</div>
 
 			</div>
-		</nav>
+		</div>
 
 		<div>
 			<!-- offcanvas -->
