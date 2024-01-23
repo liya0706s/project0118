@@ -263,3 +263,17 @@ a:hover {
         margin-top: 70px; /* 可能需要更大的邊距 */
     }
 }
+
+/* 針對小於600px寬的螢幕 */
+@media (max-width: 599px) {
+    .carousel-control-prev, .carousel-control-next {
+        display: none;
+    }
+}
+
+/* 針對大於或等於1200px寬的螢幕 */
+@media (min-width: 1200px) {
+    .carousel-item img {
+        height: 500px; /* 或您希望的任何高度 */
+    }
+}
