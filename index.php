@@ -233,11 +233,6 @@
 			</div>
 		</div>
 
-		<!-- Button trigger modal -->
-		<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-						Launch demo modal -->
-		<!-- data-bs-toggle='modal' data-bs-target='#exampleModal'接在nav管理登入的a連結中 -->
-		<!-- </button> -->
 
 		<!-- Modal -->
 		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -407,24 +402,6 @@
 		include "./front/reviews.php"
 		?>
 		<!-- review area / carousel with words end -->
-
-
-		<!-- <div class="container-fluid"> -->
-		<!-- <div class="row"> -->
-		<!-- 中間區塊開始 -->
-		<?php
-		// $do = $_GET['do'] ?? 'main';
-		// $file = "./front/{$do}.php";
-		// if (file_exists($file)) {
-		// 	include $file;
-		// } else {
-		// 	include "./front/main.php";
-		// }
-		// 
-		?>
-		<!-- 中間區塊結束 -->
-		<!-- </div> -->
-		<!-- </div> -->
 
 		<!-- footer start -->
 		<div class="container">
