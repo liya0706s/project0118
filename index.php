@@ -142,6 +142,9 @@
 								<a href="index.php?do=login" class="nav-link" data-bs-toggle='modal' data-bs-target='#exampleModal'>會員登入</a>
 							</li>
 
+							<li class="nav-item justify-content-end">
+								<a href="" class="nav-link">hihi</a>
+							</li>
 						</ul>
 					</div>
 
@@ -452,8 +455,9 @@
 						<svg class="bi" width="30" height="24">
 							<use xlink:href="#bootstrap"></use>
 						</svg>
-					</a>
+					</a> 
 					<span class="mb-3 mb-md-0 text-body-secondary">© 2024 Angie Lee Website. All rights reserved.</span>
+					<span class="align-itmes-center">xxxx</span>
 				</div>
 
 				<ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
